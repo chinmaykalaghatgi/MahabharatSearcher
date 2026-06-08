@@ -16,8 +16,9 @@ venv/
 # --- Claude Code (keep shared settings.json; ignore personal local overrides) ---
 .claude/settings.local.json
 
-# --- Large source data (164MB; > GitHub's 100MB limit — back up separately) ---
-data/raw/
+# --- Raw corpus: the gzipped source (~33MB) IS tracked; ignore the 164MB
+#     uncompressed expansion (corpus_loader reads the .gz directly) ---
+data/raw/search_engine_db.jsonl
 
 # --- Derived / rebuildable artifacts (regenerate with the mbh-build-* CLIs) ---
 # Dense index (108MB): mbh-build-embeddings

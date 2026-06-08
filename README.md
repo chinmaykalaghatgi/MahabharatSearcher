@@ -21,24 +21,30 @@ This registers the `mbh-*` console scripts (build steps, query, eval).
 
 ## Data policy (what's *not* in git)
 
-Git tracks code, docs, and the small hand-authored artifacts (the
+Git tracks code, docs, the small hand-authored artifacts (the
 entity/theme gazetteers + overrides, the eval sets, curation reviews,
-coverage reports, and the pinned eval baseline). It deliberately does
-**not** track:
+coverage reports, the pinned eval baseline), **and the raw corpus
+itself, gzipped**: `data/raw/search_engine_db.jsonl.gz` (~33 MB vs
+164 MB raw). `corpus_loader` reads the `.gz` transparently, so no manual
+decompression is needed — a fresh clone can rebuild everything.
+
+It deliberately does **not** track the large *derived* artifacts, which
+are regenerable:
 
 | Excluded | Size | How to restore |
 |---|---|---|
-| `data/raw/search_engine_db.jsonl` | 164 MB | **Irreplaceable source** — back up separately; everything else derives from it |
+| `data/raw/search_engine_db.jsonl` (uncompressed) | 164 MB | `gunzip -k data/raw/search_engine_db.jsonl.gz` (optional — code reads the `.gz`) |
 | `data/layer2/dense/` (embeddings) | 108 MB | `mbh-build-embeddings` |
 | `data/layer1/*` tagging/indexes/summaries | ~25 MB | `mbh-build-verse-characters`, `-verse-themes`, `-indexes`, `-summaries` |
 
-Both giants exceed GitHub's 100 MB file limit, and the derived data is
-regenerable, so they live outside version control. The raw corpus is the
-one file you must preserve yourself.
+The 108 MB embeddings exceed GitHub's 100 MB file limit and the rest is
+cheap to regenerate, so they stay out. The corpus is small enough
+gzipped to live in the repo, so the irreplaceable source travels with it.
 
 ## Rebuild the derived data from raw
 
-With `data/raw/search_engine_db.jsonl` in place, run in order:
+The corpus ships with the repo (gzipped) and `corpus_loader` reads it
+directly, so a fresh clone can regenerate everything by running, in order:
 
 ```bash
 .venv/bin/mbh-build-entities

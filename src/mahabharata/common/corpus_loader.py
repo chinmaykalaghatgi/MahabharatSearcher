@@ -17,9 +17,11 @@ The patch is keyed on `(uid, sanskrit_prefix)` rather than line
 number so it remains stable under raw-file reordering.
 """
 
+import gzip
 import json
 import sys
 from collections import Counter
+from pathlib import Path
 
 
 # Each entry is one stray record in the raw corpus.
@@ -103,13 +105,36 @@ def _maybe_patch(d):
     return None
 
 
+def _open_corpus(path):
+    """Open the corpus for text reading, transparently handling gzip.
+
+    Resolution: use `path` as given if it exists; otherwise fall back to
+    a sibling `<path>.gz` if present. A `.gz` path (given or resolved) is
+    read through gzip. The repo ships the corpus gzipped
+    (`search_engine_db.jsonl.gz`, ~33MB vs 164MB raw) since the plain
+    file exceeds GitHub's size limit; a local uncompressed `.jsonl`, if
+    present, takes precedence because it streams a bit faster.
+    """
+    p = Path(path)
+    if not p.exists():
+        gz = Path(str(p) + ".gz")
+        if gz.exists():
+            p = gz
+    if p.suffix == ".gz":
+        return gzip.open(p, "rt", encoding="utf-8")
+    return open(p, encoding="utf-8")
+
+
 def stream_corpus(path, *, verbose=True):
     """Yield parsed records from the raw corpus JSONL with collision
     patches applied in-memory. After exhaustion, validates that every
-    patch fired exactly once and prints a warning otherwise."""
+    patch fired exactly once and prints a warning otherwise.
+
+    `path` may point at the uncompressed `.jsonl` or the gzipped
+    `.jsonl.gz`; see `_open_corpus`."""
     applied = Counter()
     try:
-        with open(path) as f:
+        with _open_corpus(path) as f:
             for line in f:
                 d = json.loads(line)
                 p = _maybe_patch(d)

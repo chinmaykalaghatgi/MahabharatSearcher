@@ -1,0 +1,903 @@
+{
+  "timestamp": "2026-05-10T16:37:31+00:00",
+  "eval_set_path": "data/layer2/eval/eval_set.jsonl",
+  "eval_set_size": 30,
+  "config": {
+    "pass_k": 10,
+    "wide_k": 20,
+    "full_limit": 10000
+  },
+  "aggregates": {
+    "overall": {
+      "total": 30,
+      "passed": 30,
+      "pass_rate": 1.0
+    },
+    "by_shape": {
+      "structural_uid": {
+        "total": 3,
+        "passed": 3,
+        "pass_rate": 1.0
+      },
+      "structural_slice": {
+        "total": 2,
+        "passed": 2,
+        "pass_rate": 1.0
+      },
+      "facet": {
+        "total": 25,
+        "passed": 25,
+        "pass_rate": 1.0
+      }
+    },
+    "router_accuracy": 1.0,
+    "union_fallbacks": 0,
+    "facet_metrics": {
+      "n_items": 25,
+      "mean_recall_at_10": 1.0,
+      "mean_recall_at_20": 1.0,
+      "mean_mrr": 0.6513333333333334,
+      "facets_match_rate": 1.0,
+      "found_in_full_rate": 1.0
+    },
+    "frozen_subset": {
+      "total": 10,
+      "passed": 10,
+      "pass_rate": 1.0
+    }
+  },
+  "items": [
+    {
+      "id": "struct_uid_001",
+      "query": "B1_C1_S1",
+      "query_shape": "structural_uid",
+      "router_mode": "structural_uid",
+      "router_correct": true,
+      "total": 1,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B1_C1_S1"
+      ],
+      "frozen": true,
+      "passed": true,
+      "missing_uids": []
+    },
+    {
+      "id": "struct_uid_002",
+      "query": "B6_C27_S29",
+      "query_shape": "structural_uid",
+      "router_mode": "structural_uid",
+      "router_correct": true,
+      "total": 1,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B6_C27_S29"
+      ],
+      "frozen": true,
+      "passed": true,
+      "missing_uids": []
+    },
+    {
+      "id": "struct_uid_003",
+      "query": "B12_C1_S1",
+      "query_shape": "structural_uid",
+      "router_mode": "structural_uid",
+      "router_correct": true,
+      "total": 1,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B12_C1_S1"
+      ],
+      "frozen": true,
+      "passed": true,
+      "missing_uids": []
+    },
+    {
+      "id": "struct_slice_001",
+      "query": "B6_C25",
+      "query_shape": "structural_slice",
+      "router_mode": "structural_slice",
+      "router_correct": true,
+      "total": 43,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [],
+      "frozen": true,
+      "passed": true,
+      "missing_uids": []
+    },
+    {
+      "id": "struct_slice_002",
+      "query": "B17_C1",
+      "query_shape": "structural_slice",
+      "router_mode": "structural_slice",
+      "router_correct": true,
+      "total": 44,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [],
+      "frozen": true,
+      "passed": true,
+      "missing_uids": []
+    },
+    {
+      "id": "facet_001",
+      "query": "Karna and friendship",
+      "query_shape": "facet",
+      "router_mode": "facet",
+      "router_correct": true,
+      "total": 23,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B1_C126_S15",
+        "B1_C126_S38",
+        "B1_C126_S39"
+      ],
+      "frozen": true,
+      "facets_resolved": {
+        "characters": [
+          "Karna"
+        ],
+        "groups": [],
+        "themes": [
+          "friendship"
+        ]
+      },
+      "facets_match_target": true,
+      "passed": true,
+      "missing_uids": [],
+      "recall_at_10": 1.0,
+      "recall_at_20": 1.0,
+      "mrr": 1.0,
+      "found_in_full": true
+    },
+    {
+      "id": "facet_002",
+      "query": "Draupadi and women",
+      "query_shape": "facet",
+      "router_mode": "facet",
+      "router_correct": true,
+      "total": 21,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B2_C60_S40",
+        "B2_C62_S9"
+      ],
+      "frozen": false,
+      "facets_resolved": {
+        "characters": [
+          "Draupadi"
+        ],
+        "groups": [],
+        "themes": [
+          "women"
+        ]
+      },
+      "facets_match_target": true,
+      "passed": true,
+      "missing_uids": [],
+      "recall_at_10": 1.0,
+      "recall_at_20": 1.0,
+      "mrr": 0.25,
+      "found_in_full": true
+    },
+    {
+      "id": "facet_003",
+      "query": "Bhishma teaches about duty",
+      "query_shape": "facet",
+      "router_mode": "facet",
+      "router_correct": true,
+      "total": 10,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B4_C46_S1",
+        "B5_C186_S24"
+      ],
+      "frozen": true,
+      "facets_resolved": {
+        "characters": [
+          "Bhishma"
+        ],
+        "groups": [],
+        "themes": [
+          "duty"
+        ]
+      },
+      "facets_match_target": true,
+      "passed": true,
+      "missing_uids": [],
+      "recall_at_10": 1.0,
+      "recall_at_20": 1.0,
+      "mrr": 1.0,
+      "found_in_full": true
+    },
+    {
+      "id": "facet_004",
+      "query": "Krishna and yoga",
+      "query_shape": "facet",
+      "router_mode": "facet",
+      "router_correct": true,
+      "total": 13,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B6_C27_S1",
+        "B6_C27_S2"
+      ],
+      "frozen": true,
+      "facets_resolved": {
+        "characters": [
+          "Krishna"
+        ],
+        "groups": [],
+        "themes": [
+          "yoga"
+        ]
+      },
+      "facets_match_target": true,
+      "passed": true,
+      "missing_uids": [],
+      "recall_at_10": 1.0,
+      "recall_at_20": 1.0,
+      "mrr": 0.3333333333333333,
+      "found_in_full": true
+    },
+    {
+      "id": "facet_005",
+      "query": "Yudhishthira and truth",
+      "query_shape": "facet",
+      "router_mode": "facet",
+      "router_correct": true,
+      "total": 47,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B1_C188_S13",
+        "B2_C60_S41"
+      ],
+      "frozen": false,
+      "facets_resolved": {
+        "characters": [
+          "Yudhishthira"
+        ],
+        "groups": [],
+        "themes": [
+          "truth"
+        ]
+      },
+      "facets_match_target": true,
+      "passed": true,
+      "missing_uids": [],
+      "recall_at_10": 1.0,
+      "recall_at_20": 1.0,
+      "mrr": 0.3333333333333333,
+      "found_in_full": true
+    },
+    {
+      "id": "facet_006",
+      "query": "Drona and teachers",
+      "query_shape": "facet",
+      "router_mode": "facet",
+      "router_correct": true,
+      "total": 41,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B1_C122_S22",
+        "B1_C123_S1"
+      ],
+      "frozen": false,
+      "facets_resolved": {
+        "characters": [
+          "Drona"
+        ],
+        "groups": [],
+        "themes": [
+          "teachers"
+        ]
+      },
+      "facets_match_target": true,
+      "passed": true,
+      "missing_uids": [],
+      "recall_at_10": 1.0,
+      "recall_at_20": 1.0,
+      "mrr": 1.0,
+      "found_in_full": true
+    },
+    {
+      "id": "facet_007",
+      "query": "Karna and pride",
+      "query_shape": "facet",
+      "router_mode": "facet",
+      "router_correct": true,
+      "total": 12,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B5_C21_S8",
+        "B7_C133_S43"
+      ],
+      "frozen": false,
+      "facets_resolved": {
+        "characters": [
+          "Karna"
+        ],
+        "groups": [],
+        "themes": [
+          "pride"
+        ]
+      },
+      "facets_match_target": true,
+      "passed": true,
+      "missing_uids": [],
+      "recall_at_10": 1.0,
+      "recall_at_20": 1.0,
+      "mrr": 0.3333333333333333,
+      "found_in_full": true
+    },
+    {
+      "id": "facet_008",
+      "query": "Krishna and liberation",
+      "query_shape": "facet",
+      "router_mode": "facet",
+      "router_correct": true,
+      "total": 14,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B1_C2_S156",
+        "B3_C189_S16"
+      ],
+      "frozen": false,
+      "facets_resolved": {
+        "characters": [
+          "Krishna"
+        ],
+        "groups": [],
+        "themes": [
+          "liberation"
+        ]
+      },
+      "facets_match_target": true,
+      "passed": true,
+      "missing_uids": [],
+      "recall_at_10": 1.0,
+      "recall_at_20": 1.0,
+      "mrr": 1.0,
+      "found_in_full": true
+    },
+    {
+      "id": "facet_009",
+      "query": "Bhishma and time",
+      "query_shape": "facet",
+      "router_mode": "facet",
+      "router_correct": true,
+      "total": 14,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B5_C195_S3",
+        "B6_C15_S56"
+      ],
+      "frozen": false,
+      "facets_resolved": {
+        "characters": [
+          "Bhishma"
+        ],
+        "groups": [],
+        "themes": [
+          "time"
+        ]
+      },
+      "facets_match_target": true,
+      "passed": true,
+      "missing_uids": [],
+      "recall_at_10": 1.0,
+      "recall_at_20": 1.0,
+      "mrr": 0.25,
+      "found_in_full": true
+    },
+    {
+      "id": "facet_010",
+      "query": "Krishna and divinity",
+      "query_shape": "facet",
+      "router_mode": "facet",
+      "router_correct": true,
+      "total": 25,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B3_C84_S4"
+      ],
+      "frozen": false,
+      "facets_resolved": {
+        "characters": [
+          "Krishna"
+        ],
+        "groups": [],
+        "themes": [
+          "divinity"
+        ]
+      },
+      "facets_match_target": true,
+      "passed": true,
+      "missing_uids": [],
+      "recall_at_10": 1.0,
+      "recall_at_20": 1.0,
+      "mrr": 0.2,
+      "found_in_full": true
+    },
+    {
+      "id": "facet_011",
+      "query": "Sanjaya gives counsel",
+      "query_shape": "facet",
+      "router_mode": "facet",
+      "router_correct": true,
+      "total": 9,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B5_C31_S3",
+        "B5_C80_S5"
+      ],
+      "frozen": false,
+      "facets_resolved": {
+        "characters": [
+          "Sanjaya"
+        ],
+        "groups": [],
+        "themes": [
+          "counsel"
+        ]
+      },
+      "facets_match_target": true,
+      "passed": true,
+      "missing_uids": [],
+      "recall_at_10": 1.0,
+      "recall_at_20": 1.0,
+      "mrr": 0.5,
+      "found_in_full": true
+    },
+    {
+      "id": "facet_012",
+      "query": "Vidura on truth",
+      "query_shape": "facet",
+      "router_mode": "facet",
+      "router_correct": true,
+      "total": 14,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B1_C100_S28",
+        "B1_C137_S16",
+        "B2_C55_S1"
+      ],
+      "frozen": false,
+      "facets_resolved": {
+        "characters": [
+          "Vidura"
+        ],
+        "groups": [],
+        "themes": [
+          "truth"
+        ]
+      },
+      "facets_match_target": true,
+      "passed": true,
+      "missing_uids": [],
+      "recall_at_10": 1.0,
+      "recall_at_20": 1.0,
+      "mrr": 1.0,
+      "found_in_full": true
+    },
+    {
+      "id": "facet_013",
+      "query": "Bhima on the battlefield",
+      "query_shape": "facet",
+      "router_mode": "facet",
+      "router_correct": true,
+      "total": 22,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B3_C48_S4",
+        "B5_C47_S14"
+      ],
+      "frozen": false,
+      "facets_resolved": {
+        "characters": [
+          "Bhima"
+        ],
+        "groups": [],
+        "themes": [
+          "battlefield"
+        ]
+      },
+      "facets_match_target": true,
+      "passed": true,
+      "missing_uids": [],
+      "recall_at_10": 1.0,
+      "recall_at_20": 1.0,
+      "mrr": 1.0,
+      "found_in_full": true
+    },
+    {
+      "id": "facet_014",
+      "query": "Drona and pride",
+      "query_shape": "facet",
+      "router_mode": "facet",
+      "router_correct": true,
+      "total": 5,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B1_C128_S6"
+      ],
+      "frozen": true,
+      "facets_resolved": {
+        "characters": [
+          "Drona"
+        ],
+        "groups": [],
+        "themes": [
+          "pride"
+        ]
+      },
+      "facets_match_target": true,
+      "passed": true,
+      "missing_uids": [],
+      "recall_at_10": 1.0,
+      "recall_at_20": 1.0,
+      "mrr": 1.0,
+      "found_in_full": true
+    },
+    {
+      "id": "facet_015",
+      "query": "Yudhishthira in assembly",
+      "query_shape": "facet",
+      "router_mode": "facet",
+      "router_correct": true,
+      "total": 46,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B2_C4_S34"
+      ],
+      "frozen": false,
+      "facets_resolved": {
+        "characters": [
+          "Yudhishthira"
+        ],
+        "groups": [],
+        "themes": [
+          "assembly"
+        ]
+      },
+      "facets_match_target": true,
+      "passed": true,
+      "missing_uids": [],
+      "recall_at_10": 1.0,
+      "recall_at_20": 1.0,
+      "mrr": 0.5,
+      "found_in_full": true
+    },
+    {
+      "id": "facet_016",
+      "query": "Yudhishthira and Vidura",
+      "query_shape": "facet",
+      "router_mode": "facet",
+      "router_correct": true,
+      "total": 55,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B1_C133_S25",
+        "B1_C135_S7"
+      ],
+      "frozen": false,
+      "facets_resolved": {
+        "characters": [
+          "Vidura",
+          "Yudhishthira"
+        ],
+        "groups": [],
+        "themes": []
+      },
+      "facets_match_target": true,
+      "passed": true,
+      "missing_uids": [],
+      "recall_at_10": 1.0,
+      "recall_at_20": 1.0,
+      "mrr": 1.0,
+      "found_in_full": true
+    },
+    {
+      "id": "facet_017",
+      "query": "Bhima and Hidimba",
+      "query_shape": "facet",
+      "router_mode": "facet",
+      "router_correct": true,
+      "total": 36,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B1_C55_S19",
+        "B1_C139_S13"
+      ],
+      "frozen": false,
+      "facets_resolved": {
+        "characters": [
+          "Bhima",
+          "Hidimba"
+        ],
+        "groups": [],
+        "themes": []
+      },
+      "facets_match_target": true,
+      "passed": true,
+      "missing_uids": [],
+      "recall_at_10": 1.0,
+      "recall_at_20": 1.0,
+      "mrr": 1.0,
+      "found_in_full": true
+    },
+    {
+      "id": "facet_018",
+      "query": "Drona and Drupada",
+      "query_shape": "facet",
+      "router_mode": "facet",
+      "router_correct": true,
+      "total": 65,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B1_C128_S2",
+        "B1_C128_S5",
+        "B1_C128_S6"
+      ],
+      "frozen": true,
+      "facets_resolved": {
+        "characters": [
+          "Drona",
+          "Drupada"
+        ],
+        "groups": [],
+        "themes": []
+      },
+      "facets_match_target": true,
+      "passed": true,
+      "missing_uids": [],
+      "recall_at_10": 1.0,
+      "recall_at_20": 1.0,
+      "mrr": 0.3333333333333333,
+      "found_in_full": true
+    },
+    {
+      "id": "facet_019",
+      "query": "Krishna and Arjuna on dharma",
+      "query_shape": "facet",
+      "router_mode": "facet",
+      "router_correct": true,
+      "total": 29,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B1_C1_S66",
+        "B3_C189_S26"
+      ],
+      "frozen": false,
+      "facets_resolved": {
+        "characters": [
+          "Arjuna",
+          "Krishna"
+        ],
+        "groups": [],
+        "themes": [
+          "dharma"
+        ]
+      },
+      "facets_match_target": true,
+      "passed": true,
+      "missing_uids": [],
+      "recall_at_10": 1.0,
+      "recall_at_20": 1.0,
+      "mrr": 1.0,
+      "found_in_full": true
+    },
+    {
+      "id": "facet_020",
+      "query": "Yudhishthira and Krishna on dharma",
+      "query_shape": "facet",
+      "router_mode": "facet",
+      "router_correct": true,
+      "total": 26,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B1_C183_S4",
+        "B3_C120_S23"
+      ],
+      "frozen": false,
+      "facets_resolved": {
+        "characters": [
+          "Krishna",
+          "Yudhishthira"
+        ],
+        "groups": [],
+        "themes": [
+          "dharma"
+        ]
+      },
+      "facets_match_target": true,
+      "passed": true,
+      "missing_uids": [],
+      "recall_at_10": 1.0,
+      "recall_at_20": 1.0,
+      "mrr": 0.5,
+      "found_in_full": true
+    },
+    {
+      "id": "facet_021",
+      "query": "Drona and Arjuna teachers",
+      "query_shape": "facet",
+      "router_mode": "facet",
+      "router_correct": true,
+      "total": 12,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B1_C123_S1",
+        "B7_C66_S33"
+      ],
+      "frozen": false,
+      "facets_resolved": {
+        "characters": [
+          "Arjuna",
+          "Drona"
+        ],
+        "groups": [],
+        "themes": [
+          "teachers"
+        ]
+      },
+      "facets_match_target": true,
+      "passed": true,
+      "missing_uids": [],
+      "recall_at_10": 1.0,
+      "recall_at_20": 1.0,
+      "mrr": 1.0,
+      "found_in_full": true
+    },
+    {
+      "id": "facet_022",
+      "query": "Bhima and Hidimba in battle",
+      "query_shape": "facet",
+      "router_mode": "facet",
+      "router_correct": true,
+      "total": 6,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B1_C141_S2",
+        "B1_C141_S7"
+      ],
+      "frozen": false,
+      "facets_resolved": {
+        "characters": [
+          "Bhima",
+          "Hidimba"
+        ],
+        "groups": [],
+        "themes": [
+          "battle"
+        ]
+      },
+      "facets_match_target": true,
+      "passed": true,
+      "missing_uids": [],
+      "recall_at_10": 1.0,
+      "recall_at_20": 1.0,
+      "mrr": 0.5,
+      "found_in_full": true
+    },
+    {
+      "id": "facet_023",
+      "query": "Pandavas in hermitage",
+      "query_shape": "facet",
+      "router_mode": "facet",
+      "router_correct": true,
+      "total": 31,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B1_C174_S6",
+        "B3_C7_S1"
+      ],
+      "frozen": false,
+      "facets_resolved": {
+        "characters": [],
+        "groups": [
+          "Pandavas"
+        ],
+        "themes": [
+          "hermitage"
+        ]
+      },
+      "facets_match_target": true,
+      "passed": true,
+      "missing_uids": [],
+      "recall_at_10": 1.0,
+      "recall_at_20": 1.0,
+      "mrr": 0.25,
+      "found_in_full": true
+    },
+    {
+      "id": "facet_024",
+      "query": "Kauravas in war",
+      "query_shape": "facet",
+      "router_mode": "facet",
+      "router_correct": true,
+      "total": 71,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B2_C56_S1",
+        "B3_C35_S13"
+      ],
+      "frozen": false,
+      "facets_resolved": {
+        "characters": [],
+        "groups": [
+          "Kauravas"
+        ],
+        "themes": [
+          "war"
+        ]
+      },
+      "facets_match_target": true,
+      "passed": true,
+      "missing_uids": [],
+      "recall_at_10": 1.0,
+      "recall_at_20": 1.0,
+      "mrr": 0.5,
+      "found_in_full": true
+    },
+    {
+      "id": "facet_025",
+      "query": "Brahmins and charity",
+      "query_shape": "facet",
+      "router_mode": "facet",
+      "router_correct": true,
+      "total": 68,
+      "notes": [],
+      "union_fallback": false,
+      "known_good_uids": [
+        "B1_C136_S5",
+        "B1_C213_S62"
+      ],
+      "frozen": false,
+      "facets_resolved": {
+        "characters": [],
+        "groups": [
+          "Brahmins"
+        ],
+        "themes": [
+          "charity"
+        ]
+      },
+      "facets_match_target": true,
+      "passed": true,
+      "missing_uids": [],
+      "recall_at_10": 1.0,
+      "recall_at_20": 1.0,
+      "mrr": 0.5,
+      "found_in_full": true
+    }
+  ]
+}

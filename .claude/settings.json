@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "model": "opus",
+  "effortLevel": "high",
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/terminal-notifier -title 'Claude Code' -subtitle \"${PWD##*/}\" -message 'Claude needs your input' -sender com.microsoft.VSCode -sound Glass"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/terminal-notifier -title 'Claude Code' -subtitle \"${PWD##*/}\" -message 'Task complete' -sender com.microsoft.VSCode -sound Pop"
+          }
+        ]
+      }
+    ]
+  },
+  "feedbackSurveyState": {
+    "lastShownTime": 1754087414048
+  },
+  "permissions": {
+    "allow": [
+      "Bash(.venv/bin/mbh-query:*)",
+      "Bash(.venv/bin/mbh-eval:*)",
+      "Bash(.venv/bin/mbh-build-entities:*)",
+      "Bash(.venv/bin/mbh-build-themes:*)",
+      "Bash(.venv/bin/mbh-build-verse-characters:*)",
+      "Bash(.venv/bin/mbh-build-verse-themes:*)",
+      "Bash(.venv/bin/mbh-build-indexes:*)",
+      "Bash(.venv/bin/mbh-bootstrap-eval:*)",
+      "Bash(.venv/bin/pip install -e .:*)"
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+build/
+dist/
+
+# --- Virtualenv (854MB; recreate: python3.12 -m venv .venv && .venv/bin/pip install -e .) ---
+.venv/
+venv/
+
+# --- macOS ---
+.DS_Store
+
+# --- Claude Code (keep shared settings.json; ignore personal local overrides) ---
+.claude/settings.local.json
+
+# --- Large source data (164MB; > GitHub's 100MB limit — back up separately) ---
+data/raw/
+
+# --- Derived / rebuildable artifacts (regenerate with the mbh-build-* CLIs) ---
+# Dense index (108MB): mbh-build-embeddings
+data/layer2/dense/
+# Per-verse tagging + inverted indexes: mbh-build-verse-* / mbh-build-indexes
+data/layer1/verse_characters.jsonl
+data/layer1/verse_themes.jsonl
+data/layer1/character_index.json
+data/layer1/group_index.json
+data/layer1/theme_index.json
+# Chapter/parva rollup: mbh-build-summaries
+data/layer1/chapter_summaries.jsonl
+data/layer1/parva_summaries.json
+
+# --- Eval run outputs (rotating machine state; the pinned baseline + the
+#     readable .md report are kept under version control) ---
+data/layer2/reports/eval_results_latest.json
+data/layer2/reports/eval_results_previous.json

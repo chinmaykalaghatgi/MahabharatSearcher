@@ -1,0 +1,42 @@
+{
+  "_doc": "Human-edited corrections to the machine-bootstrapped entity list. Re-running build_entities.py is always safe — this file is never overwritten. Schema below; remove _doc and the _example block before adding real entries (or just leave them in, they're ignored).",
+  "_example": {
+    "characters": {
+      "add": {
+        "ExampleCharacter": {
+          "aliases": [
+            "AltName1",
+            "AltName2"
+          ],
+          "type": "category-string"
+        }
+      },
+      "remove": [
+        "NotARealCharacter"
+      ],
+      "modify": {
+        "Arjuna": {
+          "add_aliases": [
+            "NewEpithet"
+          ],
+          "remove_aliases": [
+            "WrongAlias"
+          ],
+          "set_type": "Pandava"
+        }
+      },
+      "merge": [
+        {
+          "into": "Bhima",
+          "absorb": [
+            "Bhimasena"
+          ]
+        }
+      ]
+    },
+    "places": {
+      "add": {},
+      "remove": []
+    }
+  }
+}

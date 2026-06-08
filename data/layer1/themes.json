@@ -1,0 +1,752 @@
+{
+  "themes": {
+    "dharma": {
+      "family": "ethical",
+      "variants": [
+        "dharma",
+        "Dharma",
+        "righteousness"
+      ]
+    },
+    "adharma": {
+      "family": "ethical",
+      "variants": [
+        "adharma",
+        "unrighteousness"
+      ]
+    },
+    "karma": {
+      "family": "ethical",
+      "variants": [
+        "karma",
+        "action",
+        "actions"
+      ]
+    },
+    "sin": {
+      "family": "ethical",
+      "variants": [
+        "sin",
+        "sins",
+        "evil"
+      ]
+    },
+    "virtue": {
+      "family": "ethical",
+      "variants": [
+        "virtue",
+        "virtues",
+        "virtuous"
+      ]
+    },
+    "truth": {
+      "family": "ethical",
+      "variants": [
+        "truth",
+        "truthfulness"
+      ]
+    },
+    "justice": {
+      "family": "ethical",
+      "variants": [
+        "justice"
+      ]
+    },
+    "duty": {
+      "family": "ethical",
+      "variants": [
+        "duty",
+        "duties"
+      ]
+    },
+    "greed": {
+      "family": "ethical",
+      "variants": [
+        "greed"
+      ]
+    },
+    "forgiveness": {
+      "family": "ethical",
+      "variants": [
+        "forgiveness"
+      ]
+    },
+    "non_violence": {
+      "family": "ethical",
+      "variants": [
+        "non-violence",
+        "ahimsa"
+      ]
+    },
+    "merit": {
+      "family": "ethical",
+      "variants": [
+        "merit"
+      ]
+    },
+    "anger": {
+      "family": "emotional",
+      "variants": [
+        "anger",
+        "wrath",
+        "rage",
+        "fury"
+      ]
+    },
+    "grief": {
+      "family": "emotional",
+      "variants": [
+        "grief",
+        "sorrow",
+        "mourning",
+        "lamentation"
+      ]
+    },
+    "fear": {
+      "family": "emotional",
+      "variants": [
+        "fear",
+        "terror",
+        "dread"
+      ]
+    },
+    "joy": {
+      "family": "emotional",
+      "variants": [
+        "joy",
+        "happiness",
+        "delight"
+      ]
+    },
+    "suffering": {
+      "family": "emotional",
+      "variants": [
+        "suffering",
+        "distress",
+        "anguish",
+        "misery",
+        "pain"
+      ]
+    },
+    "desire": {
+      "family": "emotional",
+      "variants": [
+        "desire",
+        "lust",
+        "craving"
+      ]
+    },
+    "pride": {
+      "family": "emotional",
+      "variants": [
+        "pride",
+        "arrogance"
+      ]
+    },
+    "compassion": {
+      "family": "emotional",
+      "variants": [
+        "compassion",
+        "mercy",
+        "pity",
+        "kindness"
+      ]
+    },
+    "love": {
+      "family": "emotional",
+      "variants": [
+        "love",
+        "affection"
+      ]
+    },
+    "jealousy": {
+      "family": "emotional",
+      "variants": [
+        "jealousy",
+        "envy"
+      ]
+    },
+    "battle": {
+      "family": "martial",
+      "variants": [
+        "battle",
+        "battles",
+        "combat",
+        "fight",
+        "fighting",
+        "attack"
+      ]
+    },
+    "war": {
+      "family": "martial",
+      "variants": [
+        "war",
+        "warfare"
+      ]
+    },
+    "weapons": {
+      "family": "martial",
+      "variants": [
+        "weapon",
+        "weapons",
+        "mace",
+        "sword"
+      ]
+    },
+    "armor": {
+      "family": "martial",
+      "variants": [
+        "armor",
+        "armour"
+      ]
+    },
+    "archery": {
+      "family": "martial",
+      "variants": [
+        "bow",
+        "bows",
+        "arrow",
+        "arrows",
+        "archer",
+        "archers"
+      ]
+    },
+    "chariot_warfare": {
+      "family": "martial",
+      "variants": [
+        "chariot",
+        "chariots",
+        "charioteer"
+      ]
+    },
+    "army": {
+      "family": "martial",
+      "variants": [
+        "army",
+        "armies",
+        "troops",
+        "forces",
+        "soldiers"
+      ]
+    },
+    "warrior": {
+      "family": "martial",
+      "variants": [
+        "warrior",
+        "warriors",
+        "hero",
+        "heroes"
+      ]
+    },
+    "elephants": {
+      "family": "martial",
+      "variants": [
+        "elephant",
+        "elephants"
+      ]
+    },
+    "cavalry": {
+      "family": "martial",
+      "variants": [
+        "horse",
+        "horses"
+      ]
+    },
+    "victory": {
+      "family": "martial",
+      "variants": [
+        "victory",
+        "triumph",
+        "conquest"
+      ]
+    },
+    "defeat": {
+      "family": "martial",
+      "variants": [
+        "defeat"
+      ]
+    },
+    "death": {
+      "family": "martial",
+      "variants": [
+        "death",
+        "slain",
+        "killed",
+        "kill",
+        "killing"
+      ]
+    },
+    "destruction": {
+      "family": "martial",
+      "variants": [
+        "destruction",
+        "ruin"
+      ]
+    },
+    "valor": {
+      "family": "martial",
+      "variants": [
+        "valor",
+        "prowess",
+        "bravery",
+        "courage"
+      ]
+    },
+    "enemy": {
+      "family": "martial",
+      "variants": [
+        "enemy",
+        "enemies",
+        "foe",
+        "foes"
+      ]
+    },
+    "battlefield": {
+      "family": "martial",
+      "variants": [
+        "battlefield"
+      ]
+    },
+    "devotion": {
+      "family": "spiritual",
+      "variants": [
+        "devotion",
+        "bhakti",
+        "worship"
+      ]
+    },
+    "meditation": {
+      "family": "spiritual",
+      "variants": [
+        "meditation",
+        "contemplation"
+      ]
+    },
+    "liberation": {
+      "family": "spiritual",
+      "variants": [
+        "liberation",
+        "moksha",
+        "salvation"
+      ]
+    },
+    "yoga": {
+      "family": "spiritual",
+      "variants": [
+        "yoga"
+      ]
+    },
+    "renunciation": {
+      "family": "spiritual",
+      "variants": [
+        "renunciation"
+      ]
+    },
+    "asceticism": {
+      "family": "spiritual",
+      "variants": [
+        "asceticism",
+        "ascetic",
+        "ascetics",
+        "penance",
+        "austerity",
+        "austerities"
+      ]
+    },
+    "sacrifice": {
+      "family": "spiritual",
+      "variants": [
+        "sacrifice",
+        "sacrifices",
+        "yajna"
+      ]
+    },
+    "knowledge": {
+      "family": "spiritual",
+      "variants": [
+        "knowledge",
+        "learning"
+      ]
+    },
+    "wisdom": {
+      "family": "spiritual",
+      "variants": [
+        "wisdom",
+        "insight"
+      ]
+    },
+    "scripture": {
+      "family": "spiritual",
+      "variants": [
+        "Vedas",
+        "Veda",
+        "scripture",
+        "scriptures"
+      ]
+    },
+    "brahman_principle": {
+      "family": "spiritual",
+      "variants": [
+        "Brahman"
+      ]
+    },
+    "self_control": {
+      "family": "spiritual",
+      "variants": [
+        "self-control",
+        "restraint",
+        "senses"
+      ]
+    },
+    "soul": {
+      "family": "spiritual",
+      "variants": [
+        "soul",
+        "atman"
+      ]
+    },
+    "mind_intellect": {
+      "family": "spiritual",
+      "variants": [
+        "mind",
+        "intellect"
+      ]
+    },
+    "sages": {
+      "family": "spiritual",
+      "variants": [
+        "sage",
+        "sages",
+        "rishi",
+        "rishis"
+      ]
+    },
+    "vows": {
+      "family": "spiritual",
+      "variants": [
+        "vow",
+        "vows"
+      ]
+    },
+    "purity": {
+      "family": "spiritual",
+      "variants": [
+        "purity"
+      ]
+    },
+    "charity": {
+      "family": "spiritual",
+      "variants": [
+        "charity",
+        "dana"
+      ]
+    },
+    "detachment": {
+      "family": "spiritual",
+      "variants": [
+        "detachment",
+        "vairagya"
+      ]
+    },
+    "humility": {
+      "family": "spiritual",
+      "variants": [
+        "humility"
+      ]
+    },
+    "delusion": {
+      "family": "spiritual",
+      "variants": [
+        "delusion",
+        "moha"
+      ]
+    },
+    "ignorance": {
+      "family": "spiritual",
+      "variants": [
+        "ignorance",
+        "avidya"
+      ]
+    },
+    "refuge": {
+      "family": "spiritual",
+      "variants": [
+        "refuge",
+        "sharanam"
+      ]
+    },
+    "hermitage": {
+      "family": "spiritual",
+      "variants": [
+        "hermitage",
+        "ashrama"
+      ]
+    },
+    "rebirth": {
+      "family": "spiritual",
+      "variants": [
+        "rebirth"
+      ]
+    },
+    "teachers": {
+      "family": "spiritual",
+      "variants": [
+        "guru",
+        "teacher",
+        "teachers"
+      ]
+    },
+    "kingship": {
+      "family": "social",
+      "variants": [
+        "king",
+        "kings",
+        "kingdom",
+        "kingdoms",
+        "sovereignty",
+        "rule"
+      ]
+    },
+    "caste": {
+      "family": "social",
+      "variants": [
+        "caste",
+        "varna",
+        "Kshatriya",
+        "Kshatriyas",
+        "Shudra",
+        "Sudra",
+        "Vaishya"
+      ]
+    },
+    "family": {
+      "family": "social",
+      "variants": [
+        "family",
+        "father",
+        "mother",
+        "son",
+        "sons",
+        "brother",
+        "brothers",
+        "daughter",
+        "relatives"
+      ]
+    },
+    "lineage": {
+      "family": "social",
+      "variants": [
+        "lineage",
+        "dynasty",
+        "descendants",
+        "ancestors"
+      ]
+    },
+    "marriage": {
+      "family": "social",
+      "variants": [
+        "marriage",
+        "wedding",
+        "bride",
+        "husband",
+        "wife"
+      ]
+    },
+    "counsel": {
+      "family": "social",
+      "variants": [
+        "counsel",
+        "advice",
+        "ministers"
+      ]
+    },
+    "honor": {
+      "family": "social",
+      "variants": [
+        "honor",
+        "respect"
+      ]
+    },
+    "wealth": {
+      "family": "social",
+      "variants": [
+        "wealth",
+        "riches",
+        "gold",
+        "treasure",
+        "artha"
+      ]
+    },
+    "protection": {
+      "family": "social",
+      "variants": [
+        "protection",
+        "protector",
+        "protect"
+      ]
+    },
+    "peace": {
+      "family": "social",
+      "variants": [
+        "peace",
+        "tranquility"
+      ]
+    },
+    "prosperity": {
+      "family": "social",
+      "variants": [
+        "prosperity",
+        "welfare"
+      ]
+    },
+    "hospitality": {
+      "family": "social",
+      "variants": [
+        "hospitality",
+        "guest",
+        "guests"
+      ]
+    },
+    "women": {
+      "family": "social",
+      "variants": [
+        "women",
+        "woman"
+      ]
+    },
+    "fame": {
+      "family": "social",
+      "variants": [
+        "fame",
+        "glory"
+      ]
+    },
+    "friendship": {
+      "family": "social",
+      "variants": [
+        "friendship",
+        "friends",
+        "friend"
+      ]
+    },
+    "assembly": {
+      "family": "social",
+      "variants": [
+        "assembly",
+        "sabha"
+      ]
+    },
+    "divine_beings": {
+      "family": "cosmological",
+      "variants": [
+        "gods",
+        "deities",
+        "Gandharvas",
+        "Gandharva"
+      ]
+    },
+    "demons": {
+      "family": "cosmological",
+      "variants": [
+        "demons",
+        "asuras",
+        "rakshasas",
+        "danavas",
+        "Rakshasa",
+        "Rakshasas"
+      ]
+    },
+    "fate": {
+      "family": "cosmological",
+      "variants": [
+        "fate",
+        "destiny",
+        "providence"
+      ]
+    },
+    "curse": {
+      "family": "cosmological",
+      "variants": [
+        "curse",
+        "curses",
+        "cursed"
+      ]
+    },
+    "boon": {
+      "family": "cosmological",
+      "variants": [
+        "boon",
+        "boons",
+        "blessing",
+        "blessings"
+      ]
+    },
+    "heaven": {
+      "family": "cosmological",
+      "variants": [
+        "heaven",
+        "heavens",
+        "svarga"
+      ]
+    },
+    "elements": {
+      "family": "cosmological",
+      "variants": [
+        "fire",
+        "water",
+        "earth",
+        "wind",
+        "sky",
+        "air"
+      ]
+    },
+    "nature": {
+      "family": "cosmological",
+      "variants": [
+        "forest",
+        "forests",
+        "mountain",
+        "mountains",
+        "ocean",
+        "river",
+        "rivers"
+      ]
+    },
+    "celestial_bodies": {
+      "family": "cosmological",
+      "variants": [
+        "sun",
+        "moon",
+        "stars"
+      ]
+    },
+    "time": {
+      "family": "cosmological",
+      "variants": [
+        "time",
+        "age",
+        "yuga"
+      ]
+    },
+    "auspicious": {
+      "family": "cosmological",
+      "variants": [
+        "auspicious",
+        "auspiciousness"
+      ]
+    },
+    "divinity": {
+      "family": "cosmological",
+      "variants": [
+        "divine",
+        "divinity"
+      ]
+    },
+    "creation": {
+      "family": "cosmological",
+      "variants": [
+        "creation"
+      ]
+    }
+  }
+}

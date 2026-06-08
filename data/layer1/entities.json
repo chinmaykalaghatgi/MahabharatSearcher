@@ -1,0 +1,723 @@
+{
+  "characters": {
+    "Yudhishthira": {
+      "aliases": [
+        "Dharmaraja",
+        "Ajatashatru",
+        "Kanka",
+        "Dharmaputra",
+        "Ajatasatru",
+        "Yudhisthira"
+      ],
+      "type": "Pandava"
+    },
+    "Bhima": {
+      "aliases": [
+        "Bhimasena",
+        "Vrikodara",
+        "Pavanaputra",
+        "Pavanasuta",
+        "Vayuputra",
+        "Vayusuta"
+      ],
+      "type": "Pandava"
+    },
+    "Arjuna": {
+      "aliases": [
+        "Partha",
+        "Dhananjaya",
+        "Phalguna",
+        "Savyasachi",
+        "Kiritin",
+        "Jishnu",
+        "Gudakesha",
+        "Bibhatsu",
+        "Vijaya",
+        "Kapidhwaja",
+        "Kaunteya",
+        "Parantapa"
+      ],
+      "type": "Pandava"
+    },
+    "Nakula": {
+      "aliases": [],
+      "type": "Pandava"
+    },
+    "Sahadeva": {
+      "aliases": [],
+      "type": "Pandava"
+    },
+    "Kunti": {
+      "aliases": [
+        "Pritha",
+        "Prtha"
+      ],
+      "type": "Pandava-mother"
+    },
+    "Madri": {
+      "aliases": [],
+      "type": "Pandava-mother"
+    },
+    "Pandu": {
+      "aliases": [],
+      "type": "Pandava-father"
+    },
+    "Draupadi": {
+      "aliases": [
+        "Krishnaa",
+        "Panchali",
+        "Yajnaseni",
+        "Sairandhri",
+        "Drupadi"
+      ],
+      "type": "Pandava-wife"
+    },
+    "Subhadra": {
+      "aliases": [],
+      "type": "Pandava-wife"
+    },
+    "Hidimba": {
+      "aliases": [
+        "Hidimbi"
+      ],
+      "type": "Pandava-wife"
+    },
+    "Abhimanyu": {
+      "aliases": [
+        "Saubhadra"
+      ],
+      "type": "Pandava-son"
+    },
+    "Ghatotkacha": {
+      "aliases": [],
+      "type": "Pandava-son"
+    },
+    "Parikshit": {
+      "aliases": [],
+      "type": "Pandava-descendant"
+    },
+    "Dhritarashtra": {
+      "aliases": [
+        "Dhrtarashtra"
+      ],
+      "type": "Kaurava-father"
+    },
+    "Gandhari": {
+      "aliases": [],
+      "type": "Kaurava-mother"
+    },
+    "Duryodhana": {
+      "aliases": [
+        "Suyodhana",
+        "Kuruvardhana"
+      ],
+      "type": "Kaurava"
+    },
+    "Dushasana": {
+      "aliases": [
+        "Duhshasana",
+        "Dussasana"
+      ],
+      "type": "Kaurava"
+    },
+    "Vikarna": {
+      "aliases": [],
+      "type": "Kaurava"
+    },
+    "Yuyutsu": {
+      "aliases": [],
+      "type": "Kaurava-defector"
+    },
+    "Vidura": {
+      "aliases": [
+        "Kshatta",
+        "Kshattri"
+      ],
+      "type": "Kaurava-uncle"
+    },
+    "Bhishma": {
+      "aliases": [
+        "Devavrata",
+        "Gangaputra",
+        "Pitamaha",
+        "Shantanava",
+        "Bhisma",
+        "Gangeya"
+      ],
+      "type": "elder"
+    },
+    "Shantanu": {
+      "aliases": [
+        "Santanu"
+      ],
+      "type": "ancestor"
+    },
+    "Satyavati": {
+      "aliases": [],
+      "type": "ancestor"
+    },
+    "Drona": {
+      "aliases": [
+        "Dronacharya",
+        "Bharadwaja-putra"
+      ],
+      "type": "preceptor"
+    },
+    "Kripa": {
+      "aliases": [
+        "Kripacharya",
+        "Sharadvata",
+        "Saradvata"
+      ],
+      "type": "preceptor"
+    },
+    "Ashwatthama": {
+      "aliases": [
+        "Asvatthama",
+        "Ashvatthama",
+        "Drauni"
+      ],
+      "type": "Kaurava-ally"
+    },
+    "Karna": {
+      "aliases": [
+        "Vasusena",
+        "Radheya",
+        "Suryaputra"
+      ],
+      "type": "Kaurava-ally"
+    },
+    "Shakuni": {
+      "aliases": [
+        "Saubala",
+        "Gandhararaja"
+      ],
+      "type": "Kaurava-ally"
+    },
+    "Jayadratha": {
+      "aliases": [
+        "Saindhava",
+        "Sindhuraja"
+      ],
+      "type": "Kaurava-ally"
+    },
+    "Bhagadatta": {
+      "aliases": [],
+      "type": "Kaurava-ally"
+    },
+    "Bhurishravas": {
+      "aliases": [
+        "Bhurisravas"
+      ],
+      "type": "Kaurava-ally"
+    },
+    "Shalya": {
+      "aliases": [
+        "Salya",
+        "Madra-raja",
+        "Madraraja"
+      ],
+      "type": "Kaurava-ally"
+    },
+    "Kritavarma": {
+      "aliases": [
+        "Krtavarma",
+        "Kritavarman"
+      ],
+      "type": "Kaurava-ally"
+    },
+    "Krishna": {
+      "aliases": [
+        "Vasudeva",
+        "Govinda",
+        "Janardana",
+        "Madhava",
+        "Keshava",
+        "Hrishikesha",
+        "Madhusudana",
+        "Achyuta",
+        "Damodara",
+        "Yadava",
+        "Devakiputra",
+        "Krsna",
+        "Varshneya",
+        "Mukunda"
+      ],
+      "type": "deity-incarnate"
+    },
+    "Balarama": {
+      "aliases": [
+        "Baladeva",
+        "Sankarshana",
+        "Halayudha",
+        "Rauhineya"
+      ],
+      "type": "Yadava"
+    },
+    "Satyaki": {
+      "aliases": [
+        "Yuyudhana",
+        "Saineya"
+      ],
+      "type": "Yadava"
+    },
+    "Pradyumna": {
+      "aliases": [],
+      "type": "Yadava"
+    },
+    "Aniruddha": {
+      "aliases": [],
+      "type": "Yadava"
+    },
+    "Drupada": {
+      "aliases": [
+        "Yajnasena",
+        "Panchala-raja"
+      ],
+      "type": "Panchala"
+    },
+    "Dhrishtadyumna": {
+      "aliases": [
+        "Drishtadyumna",
+        "Drstadyumna",
+        "Dhrstadyumna"
+      ],
+      "type": "Panchala"
+    },
+    "Shikhandi": {
+      "aliases": [
+        "Sikhandin",
+        "Shikhandin"
+      ],
+      "type": "Panchala"
+    },
+    "Virata": {
+      "aliases": [
+        "Matsya-raja",
+        "Matsyaraja"
+      ],
+      "type": "Matsya"
+    },
+    "Uttara": {
+      "aliases": [],
+      "type": "Matsya"
+    },
+    "Vyasa": {
+      "aliases": [
+        "Vedavyasa",
+        "Krishna-Dvaipayana",
+        "Dvaipayana",
+        "Parasharya"
+      ],
+      "type": "sage"
+    },
+    "Vasishtha": {
+      "aliases": [
+        "Vasistha"
+      ],
+      "type": "sage"
+    },
+    "Vishvamitra": {
+      "aliases": [
+        "Visvamitra",
+        "Kaushika"
+      ],
+      "type": "sage"
+    },
+    "Narada": {
+      "aliases": [],
+      "type": "sage"
+    },
+    "Markandeya": {
+      "aliases": [],
+      "type": "sage"
+    },
+    "Bharadwaja": {
+      "aliases": [
+        "Bharadvaja"
+      ],
+      "type": "sage"
+    },
+    "Agastya": {
+      "aliases": [],
+      "type": "sage"
+    },
+    "Atri": {
+      "aliases": [],
+      "type": "sage"
+    },
+    "Bhrigu": {
+      "aliases": [
+        "Bhrgu"
+      ],
+      "type": "sage"
+    },
+    "Parashurama": {
+      "aliases": [
+        "Parasurama",
+        "Bhargava",
+        "Jamadagnya",
+        "Rama-Jamadagnya"
+      ],
+      "type": "sage"
+    },
+    "Durvasa": {
+      "aliases": [
+        "Durvasas"
+      ],
+      "type": "sage"
+    },
+    "Galava": {
+      "aliases": [],
+      "type": "sage"
+    },
+    "Uttanka": {
+      "aliases": [],
+      "type": "sage"
+    },
+    "Shaunaka": {
+      "aliases": [
+        "Saunaka"
+      ],
+      "type": "sage"
+    },
+    "Ugrashrava": {
+      "aliases": [
+        "Sauti",
+        "Lomaharshana-putra"
+      ],
+      "type": "narrator"
+    },
+    "Sanjaya": {
+      "aliases": [],
+      "type": "narrator"
+    },
+    "Ekalavya": {
+      "aliases": [],
+      "type": "warrior"
+    },
+    "Janamejaya": {
+      "aliases": [],
+      "type": "Pandava-descendant"
+    },
+    "Babhruvahana": {
+      "aliases": [],
+      "type": "Pandava-son"
+    },
+    "Iravan": {
+      "aliases": [
+        "Iravat"
+      ],
+      "type": "Pandava-son"
+    },
+    "Indra": {
+      "aliases": [
+        "Sachipati",
+        "Devendra",
+        "Shakra",
+        "Sakra",
+        "Purandara",
+        "Vasava",
+        "Maghavan",
+        "Maghavat"
+      ],
+      "type": "deity"
+    },
+    "Agni": {
+      "aliases": [
+        "Pavaka",
+        "Hutashana",
+        "Vahni",
+        "Anala",
+        "Jvalanа"
+      ],
+      "type": "deity"
+    },
+    "Yama": {
+      "aliases": [
+        "Antaka",
+        "Kala",
+        "Mrityu",
+        "Vaivasvata"
+      ],
+      "type": "deity"
+    },
+    "Vayu": {
+      "aliases": [
+        "Pavana",
+        "Anila",
+        "Maruta",
+        "Marut"
+      ],
+      "type": "deity"
+    },
+    "Varuna": {
+      "aliases": [],
+      "type": "deity"
+    },
+    "Surya": {
+      "aliases": [
+        "Aditya",
+        "Bhaskara",
+        "Ravi",
+        "Bhanu",
+        "Tapana",
+        "Vivasvan",
+        "Vivasvat"
+      ],
+      "type": "deity"
+    },
+    "Chandra": {
+      "aliases": [
+        "Soma",
+        "Indu",
+        "Shashin"
+      ],
+      "type": "deity"
+    },
+    "Brahma": {
+      "aliases": [
+        "Svayambhu",
+        "Dhata",
+        "Lokesha",
+        "Vidhi"
+      ],
+      "type": "deity"
+    },
+    "Vishnu": {
+      "aliases": [
+        "Narayana",
+        "Hari"
+      ],
+      "type": "deity"
+    },
+    "Shiva": {
+      "aliases": [
+        "Mahadeva",
+        "Rudra",
+        "Hara",
+        "Shankara",
+        "Sankara",
+        "Ishana",
+        "Pashupati",
+        "Mahesha",
+        "Bhava",
+        "Sthanu",
+        "Tryambaka",
+        "Girisha",
+        "Nilakantha"
+      ],
+      "type": "deity"
+    },
+    "Parvati": {
+      "aliases": [
+        "Uma",
+        "Gauri",
+        "Devi",
+        "Haimavati"
+      ],
+      "type": "deity"
+    },
+    "Lakshmi": {
+      "aliases": [
+        "Sri",
+        "Shri"
+      ],
+      "type": "deity"
+    },
+    "Saraswati": {
+      "aliases": [
+        "Sarasvati"
+      ],
+      "type": "deity"
+    },
+    "Ganga": {
+      "aliases": [
+        "Bhagirathi",
+        "Jahnavi"
+      ],
+      "type": "deity"
+    },
+    "Kubera": {
+      "aliases": [
+        "Vaishravana",
+        "Vaisravana",
+        "Dhanada"
+      ],
+      "type": "deity"
+    },
+    "Kartikeya": {
+      "aliases": [
+        "Skanda",
+        "Kumara",
+        "Subrahmanya",
+        "Guha"
+      ],
+      "type": "deity"
+    }
+  },
+  "groups": {
+    "Pandavas": {
+      "aliases": [
+        "Pandava"
+      ],
+      "type": "dynasty",
+      "members": [
+        "Yudhishthira",
+        "Bhima",
+        "Arjuna",
+        "Nakula",
+        "Sahadeva"
+      ]
+    },
+    "Kauravas": {
+      "aliases": [
+        "Kaurava"
+      ],
+      "type": "dynasty",
+      "members": [
+        "Duryodhana",
+        "Dushasana",
+        "Vikarna",
+        "Yuyutsu"
+      ]
+    },
+    "Brahmins": {
+      "aliases": [
+        "Brahmin",
+        "Brahmana",
+        "Brahmanas"
+      ],
+      "type": "varna",
+      "members": []
+    },
+    "Vasus": {
+      "aliases": [],
+      "type": "deity-group",
+      "members": []
+    }
+  },
+  "places": {
+    "Hastinapura": {
+      "aliases": [
+        "Hastinapur",
+        "Nagasahvaya",
+        "Gajasahvaya"
+      ],
+      "type": "city"
+    },
+    "Indraprastha": {
+      "aliases": [
+        "Khandavaprastha"
+      ],
+      "type": "city"
+    },
+    "Kurukshetra": {
+      "aliases": [
+        "Samantapanchaka",
+        "Dharmakshetra"
+      ],
+      "type": "battlefield"
+    },
+    "Dvaraka": {
+      "aliases": [
+        "Dwaraka",
+        "Dwarka",
+        "Dwarika"
+      ],
+      "type": "city"
+    },
+    "Mathura": {
+      "aliases": [],
+      "type": "city"
+    },
+    "Naimisha": {
+      "aliases": [
+        "Naimisharanya"
+      ],
+      "type": "forest"
+    },
+    "Kamyaka": {
+      "aliases": [],
+      "type": "forest"
+    },
+    "Dvaitavana": {
+      "aliases": [
+        "Dwaita-vana"
+      ],
+      "type": "forest"
+    },
+    "Khandava": {
+      "aliases": [
+        "Khandava-vana"
+      ],
+      "type": "forest"
+    },
+    "Panchala": {
+      "aliases": [
+        "Pancala"
+      ],
+      "type": "kingdom"
+    },
+    "Magadha": {
+      "aliases": [],
+      "type": "kingdom"
+    },
+    "Anga": {
+      "aliases": [],
+      "type": "kingdom"
+    },
+    "Kalinga": {
+      "aliases": [],
+      "type": "kingdom"
+    },
+    "Sindhu": {
+      "aliases": [],
+      "type": "kingdom"
+    },
+    "Kamboja": {
+      "aliases": [],
+      "type": "kingdom"
+    },
+    "Gandhara": {
+      "aliases": [],
+      "type": "kingdom"
+    },
+    "Madra": {
+      "aliases": [],
+      "type": "kingdom"
+    },
+    "Kashi": {
+      "aliases": [
+        "Varanasi"
+      ],
+      "type": "kingdom"
+    },
+    "Kosala": {
+      "aliases": [],
+      "type": "kingdom"
+    },
+    "Videha": {
+      "aliases": [],
+      "type": "kingdom"
+    },
+    "Matsya": {
+      "aliases": [],
+      "type": "kingdom"
+    },
+    "Saurashtra": {
+      "aliases": [],
+      "type": "kingdom"
+    },
+    "Kuru": {
+      "aliases": [
+        "Kurus"
+      ],
+      "type": "kingdom"
+    },
+    "Yamuna": {
+      "aliases": [],
+      "type": "river"
+    }
+  }
+}

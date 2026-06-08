@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mahabharata"
+version = "0.1.0"
+description = "Local Mahabharata research tool — structured knowledge + retrieval + synthesis."
+requires-python = ">=3.10"
+dependencies = [
+    "rank_bm25",          # Layer 2 Phase C / Step 5 — BM25 lexical retrieval
+    "sentence-transformers",  # Layer 2 Phase C / Step 6 — dense bi-encoder
+]
+
+[project.scripts]
+mbh-build-entities         = "mahabharata.cli.build_entities:main"
+mbh-build-themes           = "mahabharata.cli.build_themes:main"
+mbh-build-verse-characters = "mahabharata.cli.build_verse_characters:main"
+mbh-build-verse-themes     = "mahabharata.cli.build_verse_themes:main"
+mbh-build-indexes          = "mahabharata.cli.build_indexes:main"
+mbh-build-summaries        = "mahabharata.cli.build_summaries:main"
+mbh-query                  = "mahabharata.cli.query:main"
+mbh-bootstrap-eval         = "mahabharata.cli.bootstrap_eval:main"
+mbh-eval                   = "mahabharata.cli.eval:main"
+mbh-build-embeddings       = "mahabharata.cli.build_embeddings:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,38 @@
+{
+  "_doc": "Human-edited corrections to the machine-bootstrapped theme taxonomy. Re-running build_themes.py is always safe — this file is never overwritten. Schema below; remove _doc and _example before adding real entries (or just leave them in, they're ignored).",
+  "_example": {
+    "themes": {
+      "add": {
+        "example_theme": {
+          "family": "ethical",
+          "variants": [
+            "term1",
+            "term2"
+          ]
+        }
+      },
+      "remove": [
+        "wrong_theme"
+      ],
+      "modify": {
+        "dharma": {
+          "add_variants": [
+            "new_variant"
+          ],
+          "remove_variants": [
+            "wrong_variant"
+          ],
+          "set_family": "ethical"
+        }
+      },
+      "merge": [
+        {
+          "into": "dharma",
+          "absorb": [
+            "duplicate_theme"
+          ]
+        }
+      ]
+    }
+  }
+}

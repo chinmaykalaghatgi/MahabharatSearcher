@@ -195,7 +195,10 @@ This project is also an AI engineering education exercise. Concepts to cover:
    - ✓ Step 6: Dense bi-encoder lane, `bge-small-en-v1.5`, offline embeddings (`mahabharata.layer2.{embed,dense}` → `mbh-build-embeddings`)
    - ✓ Step 7: RRF fusion (`mahabharata.layer2.fusion`) **built, tested, REJECTED** — equal-weight RRF regressed *both* query shapes. Replaced by **route-by-shape**: quoted queries → BM25 (lexical), paraphrase → dense (concept). `fusion.py` kept for a future "mixed" route (2026-06-08)
    - ☐ Step 8+: cross-encoder reranker (gated on eval evidence), summary-field index, event graph — all deferred
-5. **Small synthesis model** — only once retrieval is solid
+5. **Small synthesis model (Layer 3)** — **active next step** (decided
+   2026-06-10). Retrieval is solid (eval 49/52); the 3 concept canaries
+   were found to be reasoning/scene questions best handled by synthesis,
+   not verse-level retrieval (see the 2026-06-10 section below).
 6. **Translation model** — fine-tune NLLB/mBART on the Sanskrit↔English pairs
 
 ## Environment
@@ -997,6 +1000,65 @@ Eval set grew 45 → **52 items** (added the 7 quoted lexical items).
 
 `fusion.py` stays in the tree for a future genuine "mixed" route, but is
 not on the default retrieval path.
+
+---
+
+## Layer 2 → Layer 3 — Concept-canary investigation & pivot (2026-06-10)
+
+Goal: rescue the 3 intentional concept canaries (`concept_001` Arjuna
+refuses to fight → B6_C24; `concept_003` Draupadi disrobed →
+B2_C60/62/72; `concept_006` Bhishma's vow → B1_C94). **Four retrieval-side
+fixes were tested; all rejected.** This was a measurement arc, not a
+build — no `src/` changes shipped.
+
+### What was tried (and why each failed)
+
+1. **Entity-prior fusion** ✗ — intersect/boost dense results with the
+   entity facet set. Fails because the KGs often aren't entity-tagged at
+   all (5/6 of concept_001's KGs are *not* in Arjuna's facet set — they're
+   Arjuna's own words, which Step 3's keyword-NER doesn't tag with his
+   name), and the entity sets are too broad (900–5,900 verses) to
+   discriminate. Intersecting would *drop* the right answers.
+2. **bge query-instruction prefix** ✗ — bge-small documents a query
+   prefix for asymmetric retrieval; we weren't using it. Adding it
+   slightly *hurts* here (mean concept recall@10 0.312 → 0.267).
+3. **Cross-encoder reranker** ✗ (by inference) — the canary KGs sit at
+   verse-dense rank **7,000–53,000**. A reranker only reorders a ~top-200
+   candidate pool; it cannot recover verses that deep. The problem is
+   **recall, not ranking.**
+4. **Verse/chapter cosine blend** ✗ — a principled linear blend of two
+   comparable bge cosines (`α·verse + (1−α)·chapter`), swept over the full
+   concept set. No α beats verse-dense-only (α=1.0, r@10 0.312): the best
+   blend rescues *only* concept_003 (to 0.25) while regressing every
+   concept query verse-dense already handles (mean → 0.292). The same
+   broad-regression-for-one-binary-pass trade that sank RRF.
+
+### The diagnosis (why retrieval tuning is the wrong layer)
+
+The canaries are **reasoning / scene** questions ("why did X…", "what did
+X feel…"); the other concept items are **lookup** questions. Any *always-on*
+combination that helps the former dilutes the latter, and the router can't
+distinguish them from a free-text query (the same lexical-vs-concept
+ambiguity that forced explicit quote-gating). So verse-level retrieval has
+a **structural ceiling** on reasoning questions — it's not a tuning gap.
+
+### What the arc produced
+
+**Chapter-level dense retrieval works as a scene-localizer:** concept_003
+→ chapter B2_C62 ranks **#1**, concept_001 → B6_C24 ranks **#22** (up from
+verse rank ~7,000–53,000). Built and persisted (gitignored, derived):
+`data/layer2/dense/chapter_embeddings.npy` (1,995×384, bge over the Step 6
+`chapter_summaries.jsonl`) + `chapter_uids.txt`. concept_006's B1_C94 still
+ranks ~1,016 — likely bge's 512-token truncation of a long summary
+(chunking is a future refinement).
+
+Chapter retrieval's correct home is **Layer 3 as the context-fetch step**,
+not an always-on concept-lane blend: a synthesis model reads the localized
+chapter and *reasons* the answer, tolerating imperfect verse-recall in a
+way the strict "KG verse in top-10" metric never will. **Decision: pivot to
+Layer 3 synthesis**, consuming the chapter index just built. Layer 1 & 2
+remain open for later iteration (chapter-summary chunking; an explicit
+user-controlled parva/chapter retrieval mode).
 
 ---
 

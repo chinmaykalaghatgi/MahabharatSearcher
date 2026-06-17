@@ -75,6 +75,37 @@ LAYER2_DENSE_DIR = LAYER2_DIR / "dense"
 DENSE_EMBEDDINGS_PATH = LAYER2_DENSE_DIR / "embeddings.npy"
 DENSE_UIDS_PATH = LAYER2_DENSE_DIR / "uids.txt"
 
+# Chapter-level dense index — bge over the Step 6 chapter summaries.
+# Coarse scene-localizer feeding Layer 3 synthesis (architecture doc
+# Layer 2 Choice 2 outcome / Layer 3 Choice 3). Same (N, 384) matrix +
+# parallel UID list format as the verse index, N = 1,995 chapters.
+CHAPTER_DENSE_EMBEDDINGS_PATH = LAYER2_DENSE_DIR / "chapter_embeddings.npy"
+CHAPTER_DENSE_UIDS_PATH = LAYER2_DENSE_DIR / "chapter_uids.txt"
+# Per-chunk metadata parallel to the chapter embedding rows: one JSON
+# object per line ({chapter_uid, chunk_idx, text}). Long chapter
+# summaries are chunked so a mid-chapter scene gets its own vector
+# (bge truncates at 512 tokens); ranking max-pools chunks back to the
+# chapter, and the matched chunk text is what Layer 3 shows the model.
+CHAPTER_DENSE_CHUNKS_PATH = LAYER2_DENSE_DIR / "chapter_chunks.jsonl"
+
+# Layer 3 — synthesis eval outputs. Same 3-slot rotation as the Layer 2
+# harness (latest overwritten, previous rotated, baseline manually
+# pinned). The eval set is the concept-shape subset of EVAL_SET_PATH
+# (reasoning/lookup questions with curated known_good_uids) — no separate
+# file; the harness filters by query_shape.
+LAYER3_DIR = DATA_DIR / "layer3"
+LAYER3_REPORTS_DIR = LAYER3_DIR / "reports"
+SYNTH_EVAL_LATEST_PATH = LAYER3_REPORTS_DIR / "synthesis_eval_latest.json"
+SYNTH_EVAL_PREVIOUS_PATH = LAYER3_REPORTS_DIR / "synthesis_eval_previous.json"
+SYNTH_EVAL_BASELINE_PATH = LAYER3_REPORTS_DIR / "synthesis_eval_baseline.json"
+SYNTH_EVAL_REPORT_PATH = LAYER3_REPORTS_DIR / "synthesis_eval.md"
+
+# Dogfood capture — every query through the unified `mbh` front door is
+# appended here (query + feedback records, append-only JSONL). The point
+# is to harvest the real query distribution + flagged failures as the
+# next, un-overfit eval set (vs. hand-picked canaries).
+DOGFOOD_LOG_PATH = DATA_DIR / "dogfood_log.jsonl"
+
 
 def rel(path: Path) -> str:
     """Display path relative to project root (for log messages)."""

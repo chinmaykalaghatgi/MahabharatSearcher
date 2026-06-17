@@ -134,6 +134,14 @@ LLM pass was unnecessary. If it isn't, we can upgrade later. This is the
 **YAGNI principle** applied to pipeline steps: don't pay for capability
 before you've demonstrated that you need it.
 
+> **Outcome (2026-06-08): shipped naive, and it paid off twice.** Step 6 built
+> 1,995 chapter digests + 18 parva aggregates by pure concatenation, no LLM
+> (`chapter_summaries.jsonl` + `parva_summaries.json`). Step 6↔Step 5 tally
+> parity is exact. The naive text then turned out to be *good enough to embed*:
+> the chapter-dense index built on it (2026-06-10) localizes scenes well enough
+> to serve as the Layer 3 context-fetch substrate (see Layer 2 Choice 2 outcome
+> and the Layer 3 section). The ~1,995-call Gemini pass was never needed.
+
 #### Choice 5 — Defer the event graph (Step 7)
 
 **The ambitious vision:** Extract `(subject, predicate, object, verse_uid)`
@@ -580,6 +588,17 @@ queries like "what is the Drona Parva about?" — but buildable later as
 a parallel index once eval shows verse-level retrieval underperforms on
 that query shape. Don't build speculatively.
 
+> **Outcome (2026-06-10): the deferral condition fired — chapter index now
+> built.** The concept canaries gave the empirical proof this choice was
+> waiting for: verse-level retrieval has a structural ceiling on reasoning/scene
+> questions (the answer is a *scene*, not a verse). A chapter-dense index
+> (`chapter_embeddings.npy`, 1,995×384 bge over the Step 6 summaries +
+> `chapter_uids.txt`) localizes those scenes far better — `concept_003` → its
+> chapter at rank #1, `concept_001` → rank #22 (vs verse rank ~7,000–53,000).
+> Its home is **not** an always-on concept-lane blend (that trade was rejected,
+> see Choice 6 outcome) but **Layer 3's context-fetch step** — coarse chapter
+> localization feeding fine verse-gathering. See Layer 3 Choice 3.
+
 #### Choice 3 — What text we embed per verse
 
 **What we're doing:** The dense index embeds **the fluent English
@@ -672,6 +691,25 @@ fusion is just adding noise, we drop the weaker one. If both contribute
 but RRF under-weights the stronger signal, we could try a learned
 combiner once the eval set is large enough.
 
+> **Outcome (2026-06-08): RRF built, tested, REJECTED — the prediction was
+> wrong.** This choice argued RRF was the YAGNI-correct default; eval overruled
+> it. Equal-weight RRF dropped concept mean recall@10 from 0.312 (dense-only) to
+> 0.175 — BM25 scores ~0 on paraphrastic queries, and fusing on *rank position*
+> interleaves BM25's wrong top hits with dense's correct ones. No weighting
+> (dense:bm25 up to 10:1) beat dense-only; weighting only crawled back *toward*
+> it. The "reconsider" clause fired: a 7-item lexical eval showed the mirror
+> image (BM25 r@10 0.619 vs dense 0.167 — BM25 ~4×). The two lanes aren't
+> strong-vs-weak; each is ~4× better on *its own* shape, so fusing dilutes
+> whichever is right. **The fix is route-by-shape, not fuse:** the router gained
+> a fifth mode, `lexical`, gated by **explicit double-quotes** (`"iron mace"`) —
+> bare phrases are syntactically identical whether lexical or concept intent, so
+> intent is made an explicit signal rather than guessed. Precedence: UID > slice
+> > quoted-lexical > question-shape concept > high-coverage facet > concept.
+> `fusion.py` stays in the tree for a future genuine "mixed" route but is off the
+> default path. New baseline: **49/52** (lexical 7/7, facet 25/25, concept
+> 12/15). This is the canonical example of test-set-first overruling a
+> literature-default prior.
+
 #### Choice 7 — Cross-encoder reranker is gated on evidence, not built upfront
 
 **What we're doing:** The hybrid retriever (choices 1-6) is the v1
@@ -686,6 +724,15 @@ help if the stage-1 retriever is already returning good candidates. The
 right decision procedure is: measure stage 1 first, then decide.
 Building it speculatively contradicts the critical-path discipline we
 used in Layer 1.
+
+> **Outcome (2026-06-10): not built — ruled out by inference for the canaries.**
+> The gate stayed shut. A reranker only reorders a ~top-200 candidate pool, but
+> the canary answer-verses sit at verse-dense rank **7,000–53,000**. A reranker
+> cannot recover what stage 1 never surfaced — the canary problem is **recall,
+> not ranking**. So a cross-encoder is the wrong tool *for this failure*; it
+> remains a live option if eval later shows a recall-adequate-but-precision-poor
+> query shape. The canaries' recall ceiling is what motivated the chapter index
+> + Layer 3 instead (see Choice 2 outcome).
 
 #### Choice 8 — Build the eval set before (not after) the retriever
 
@@ -791,10 +838,246 @@ they're needed.
 
 ## Layer 3 — Synthesis
 
-*To be written when we reach this layer. Expected topics: retrieval-augmented
-generation vs parametric knowledge, model size vs task difficulty, conditional
-routing (when to invoke the model at all), why we fine-tune on hard tasks
-rather than verse-level format imitation.*
+> Status note (2026-06-17): this section is written *before* the build, in the
+> project's test-set-first discipline — the design contract comes first, code
+> second. Choices here are the plan; outcome callouts will be appended as eval
+> evidence arrives, the same way Layer 2's RRF prediction was later overturned.
+
+### Theoretical basis
+
+**Synthesis is reading comprehension over retrieved context — not parametric
+recall.**
+This is the same materialized-views thesis that governs Layer 1, applied one
+level up. Layer 1 said: don't make a model *store* facts you can keep on disk.
+Layer 3 says: don't make a model *know* the Mahabharata — make it *read* the
+verses Layer 2 just handed it and assemble an answer. The model's competence we
+pay for is reading comprehension and faithful composition, not knowledge. This
+is the exact inversion of the previous project (Mahabharat_Python_Test), which
+fine-tuned an 8B model to "know" the epic and got format imitation plus
+hallucination for its trouble. Knowledge lives in the corpus; reasoning is
+rented per query and discarded.
+
+**Layer 2 is the ceiling; Layer 3 is what you build on it.**
+Restating the Layer 2 basis: "if retrieval quietly filters out the right verse,
+no amount of synthesis cleverness recovers it." Layer 3 cannot exceed the
+candidate set it is given. This is not a caveat — it is the central design
+constraint. Every Layer 3 decision is downstream of "what context did retrieval
+localize," which is why the synthesis layer is co-designed with the chapter-dense
+index, not bolted onto verse retrieval.
+
+**The empirical motivation: the canaries proved a structural ceiling.**
+The 2026-06-10 arc established that the three reasoning/scene canaries
+(`concept_001` why Arjuna refuses to fight, `concept_003` Draupadi's disrobing,
+`concept_006` Bhishma's vow) are *not* fixable at the retrieval layer. Four
+fixes were built and rejected; the diagnosis was that "why did X…" / "what did X
+feel…" questions have answers that are *spans reasoned across a scene*, not a
+single verse a top-10 metric can pin. The conclusion was explicit: these belong
+to synthesis. Layer 3 exists precisely to convert that retrieval ceiling into a
+reasoning problem a small model can solve over a localized chapter.
+
+**RAG, strictly — and grounded RAG specifically.**
+Layer 3 is retrieval-augmented generation in its strict form: the model sees
+only the retrieved context and must answer from it, cite the verse UIDs it used,
+and abstain when the answer is not present. The anti-hallucination contract is
+not a nicety; it is the whole reason this architecture beats parametric storage.
+A grounded answer with citations is *verifiable* — the user (or an eval) can
+open the cited UID and check. A parametric answer is not.
+
+### Design choices
+
+#### Choice 1 — RAG over parametric: the model reads, never recalls
+
+**What we're doing:** The synthesis model is prompted with retrieved context and
+instructed to answer *only* from it, cite the verse UIDs it draws on, and say
+"not found in the retrieved verses" rather than fill the gap from training data.
+
+**Alternative considered:** Fine-tune a model on the corpus so it can answer
+from parameters. This is exactly what the previous project did and exactly why
+this one exists. Parametric storage is lossy, unverifiable, and hallucination-
+prone for a corpus we already hold exactly on disk.
+
+**Why grounded RAG wins:** It makes the cardinal failure (hallucination) into a
+*checkable* event — a cited UID either supports the claim or it doesn't. It
+keeps knowledge in the corpus where it is exact and editable. And it lets a
+small model punch above its weight, because reading 5–15 supplied verses is a
+far easier task than recalling the right ones from 73,820 memorized ones.
+
+#### Choice 2 — Conditional invocation: most queries never reach Layer 3
+
+**What we're doing:** Synthesis is the most expensive lane (an LLM forward pass,
+nondeterministic, hundreds of ms to seconds) and fires *last and least*.
+Structural (UID/slice), facet, and lexical queries are already answered
+exactly by Layer 1/2 lookups — they return verses directly, no synthesis. Layer
+3 is invoked only for the query shapes that genuinely need an *assembled* answer:
+the reasoning/scene questions the canaries exemplify.
+
+**Why:** This is the same cost-asymmetry discipline as the Layer 2 router —
+"use the cheapest tool that works." A facet query like `Krishna and yoga` wants
+a verse list, not a paragraph; running a model over it adds latency, nondeterm-
+inism, and a hallucination surface for zero benefit.
+
+**The hard part — and it is genuinely hard:** the router *cannot reliably tell*
+a synthesis-needing reasoning question from a plain concept lookup. This is the
+same lexical-vs-concept ambiguity that forced explicit quote-gating in Layer 2:
+"Why did Arjuna refuse to fight?" and "verses about refusing battle" are
+syntactically near-identical but want different machinery. v1 resolves this the
+honest way (see Open Questions): synthesis is **opt-in** behind an explicit flag
+/ mode rather than auto-detected, until eval shows a heuristic that beats the
+ambiguity. We do not repeat the mistake of an always-on combiner that helps the
+reasoning case and dilutes everything else — that is exactly the trade that sank
+RRF and the verse/chapter blend.
+
+#### Choice 3 — Context assembly: chapter-localize, then verse-gather
+
+**What we're doing:** Two-stage context fetch, reusing artifacts that already
+exist. Stage 1 (coarse): the **chapter-dense index**
+(`chapter_embeddings.npy`, built 2026-06-10) ranks the 1,995 chapter summaries
+against the query and localizes the scene — this is where it earns its keep
+(`concept_003` → chapter B2_C62 at rank #1). Stage 2 (fine): pull the localized
+chapter's `chapter_summaries.jsonl` digest plus the top verse-level dense hits
+*within or near* that chapter, with fluent translations (and Sanskrit gloss
+available for display). That bundle is the model's context window.
+
+**Why coarse-to-fine:** It is the standard hierarchical-retrieval shape, and it
+is exactly what the canary arc validated — chapter retrieval recovers scenes
+that verse retrieval buries at rank 7,000–53,000. The chapter localizes "where
+in the epic this happens"; the verses supply the quotable ground truth the model
+must cite. Neither alone is sufficient: chapter-only loses verse-level citation,
+verse-only loses the scene.
+
+**What we give up:** `concept_006`'s chapter (B1_C94) still ranks ~1,016, likely
+because bge truncates the long summary at 512 tokens. Chapter-summary chunking
+is the known fix and is deferred to Open Questions — v1 tolerates it because
+synthesis degrades gracefully (a near-miss chapter still narrows context vs the
+whole corpus) where the strict retrieval metric did not.
+
+> **Outcome (2026-06-17): chunking implemented — chapter recall doubled.** Each
+> chapter summary is now split into ≤1,200-char chunks on verse boundaries (1,995
+> chapters → 8,711 chunks, 4.37 avg), each embedded separately; a chapter ranks
+> by its best chunk (max-pool, `layer2.chapter_dense.ChapterRetriever`), and the
+> *matching chunk* — not a head-truncated summary — is what the model is shown.
+> On the L3 eval this doubled mean chapter context recall (0.071 → 0.148) and
+> lifted combined recall 0.301 → 0.355 and citation precision 0.249 → 0.285
+> (verse recall unchanged at 0.247, confirming the gain is the chapter lane).
+> Standout: `concept_003` chapter recall 0.38 → 0.88. **But `concept_006` was
+> *not* rescued** — B1_C94 (Bhishma's vow) still doesn't localize even chunked,
+> so chunking is necessary-not-sufficient; some scenes need a better localizer
+> signal than the naive-rollup summary provides.
+
+#### Choice 4 — Small instruct model, prompted before fine-tuned
+
+**What we're doing:** Start with an off-the-shelf small instruction-tuned model
+(1–3B class — Qwen2.5-1.5B/3B-Instruct, Phi-3 Mini, Llama-3.2-3B are the
+candidates), served locally via **Ollama** (already in the stack, already used
+for the eval bootstrap), prompted with the assembled context. **Zero training in
+v1.**
+
+**Alternative considered (and deferred, not rejected):** Fine-tuning on hard
+tasks — character-arc queries, multi-verse reasoning, comparative questions.
+This is the roadmap's eventual ambition, but the previous project's scar is
+precisely *premature fine-tuning*. The YAGNI/critical-path discipline says:
+prove a prompted base model can't assemble grounded answers *before* paying for
+training data, compute, and a serving pipeline. Fine-tuning is gated on eval
+evidence, exactly like the cross-encoder in Layer 2.
+
+**Why small is the right starting point:** Synthesis-over-supplied-context is a
+fundamentally easier task than open-domain QA — the model is not asked to recall,
+only to read 5–15 verses and compose faithfully. Task difficulty, not corpus
+size, sets the model-size floor, and reading comprehension over a short context
+is squarely within small-model range. Upgrade only if eval shows the small model
+mangles multi-verse reasoning.
+
+#### Choice 5 — Grounding via mandatory UID citation + abstention
+
+**What we're doing:** The output contract requires every substantive claim to
+cite the verse UID(s) supporting it, and requires explicit abstention ("the
+retrieved verses don't answer this") over fabrication. Generation runs at low
+temperature for reproducibility.
+
+**Why:** Citation turns the answer into something checkable and converts
+hallucination from an invisible failure into a detectable one (a cited UID whose
+translation doesn't support the claim). This is the single most important design
+lever against the previous project's failure mode, and it is what makes the
+synthesis layer trustworthy enough to build on.
+
+#### Choice 6 — Evaluation without gold answers: faithfulness + citation precision + context recall
+
+**The problem:** Layers 1–2 could be evaluated against known-good UIDs because
+retrieval has a set-membership ground truth. Synthesis produces free text — there
+is no single gold paragraph, and writing one per question both doesn't scale and
+co-evolves with the system it measures.
+
+**What we're doing:** Decompose answer quality into measurable, mostly
+reference-free components, in the RAGAS tradition:
+- **Faithfulness / groundedness** — does every claim follow from the cited
+  context? Scored by an LLM-as-judge (a *different* model than the synthesizer,
+  to limit the obvious circularity), and partially mechanizable by checking that
+  cited UIDs exist and were in the supplied context.
+- **Citation precision** — are the cited UIDs actually relevant? This is
+  checkable against the curated `known_good_uids` we already maintain. The three
+  canaries become the **first synthesis eval items**: they already have curated
+  answer-verse spans (B6_C24; B2_C60/62/72; B1_C94).
+- **Context recall** — did retrieval supply the verses needed to answer? This is
+  just the existing Layer 2 `recall@k` re-used as an upstream gate; it cleanly
+  attributes failures to the right layer (bad retrieval vs bad synthesis).
+
+**Why this shape:** It keeps the test-set-first discipline alive into a layer
+that resists gold labels, and it preserves layer attribution — the single most
+useful property of the existing eval harness. An answer can fail because
+retrieval missed (context recall low) or because the model hallucinated despite
+good context (faithfulness low); these demand different fixes and the metrics
+keep them separate.
+
+### Tradeoffs
+
+- **First nondeterministic runtime path.** Every prior lane (UID, slice, facet,
+  BM25, dense) is deterministic and instantly debuggable. An LLM in the hot path
+  introduces latency, run-to-run variance, and a hallucination surface.
+  Mitigations: conditional invocation (most queries never pay it), low
+  temperature, mandatory citation, and abstention.
+- **LLM-as-judge is circular and noisy.** Using a model to grade a model is a
+  known weak measurement. Mitigation: judge with a different/larger model,
+  cross-check citation precision against the curated UIDs (which is *not*
+  model-graded), and treat judge scores as trend signal, not ground truth.
+- **A local 1–3B model may simply not reason well enough.** The fallback
+  (fine-tuning, or a larger local model) is more expensive on every axis. We
+  accept the risk because the alternative — assuming we need it — is the exact
+  premature-scaling error the project was founded to avoid.
+- **Toolchain growth, again.** Layer 3 adds a generation dependency (Ollama
+  serving + a prompt/orchestration module) on top of the retrieval stack. Still
+  local, still CPU/Metal, still free per query.
+
+### Open questions for Layer 3
+
+- **When to invoke synthesis automatically.** v1 is opt-in by flag. Can a cheap
+  signal (question-form + low facet-coverage + the dense score *distribution*,
+  e.g. a flat top-k implying "no single verse answers this") detect
+  reasoning-shaped queries reliably enough to auto-route? This is the live
+  research question; it is the same ambiguity that quote-gating dodged rather
+  than solved.
+- **Fine-tune target, if eval demands it.** Which hard tasks (character arcs,
+  multi-hop, comparison)? What training data — can we bootstrap synthetic
+  (question, grounded-answer, cited-UIDs) triples from the corpus itself, the way
+  the eval set was bootstrapped? And how do we avoid re-introducing format
+  imitation?
+- **Agentic / multi-hop retrieval loop.** "Who killed Bhishma and why" needs the
+  model to *request more context* after a first pass. Should Layer 3 be a single
+  shot over fixed context, or a loop where the model can call back into Layer 2?
+  Single-shot for v1; the loop is the natural extension once single-shot is
+  measured.
+- **Chapter-summary chunking.** ~~`concept_006`'s long summary is truncated at
+  bge's 512 tokens, sinking its chapter rank.~~ DONE 2026-06-17 (see Choice 3
+  outcome): chunk + max-pool doubled chapter recall, but did *not* rescue
+  `concept_006`. Remaining lever there: the naive-rollup summary may be a weak
+  localizer signal for that scene — candidates are an LLM-written chapter
+  summary (Layer 1 Choice 4's deferred upgrade), chunk overlap, or embedding the
+  verse-translation text of the chapter rather than the Gemini summary.
+- **Authoring reasoning-question ground truth without co-evolution.** The
+  classic IR eval-drift trap, now sharper because synthesis answers are open-
+  ended. Mitigation mirrors Layer 2: freeze a small reasoning-question anchor
+  set (the canaries are the seed) and never edit it once written.
+
+---
 
 ---
 

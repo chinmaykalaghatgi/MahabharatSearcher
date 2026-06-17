@@ -1,0 +1,812 @@
+{
+  "timestamp": "2026-06-17T05:57:29+00:00",
+  "eval_set_path": "data/layer2/eval/eval_set.jsonl",
+  "eval_set_size": 15,
+  "model": "llama3-8k:latest",
+  "config": {
+    "n_chapters": 3,
+    "n_verses": 8,
+    "judge": false
+  },
+  "aggregates": {
+    "total": 15,
+    "passed": 14,
+    "pass_rate": 0.9333333333333333,
+    "pass_reasons": {
+      "correct_abstain": 1,
+      "grounded_answer": 13,
+      "should_have_abstained": 1
+    },
+    "abstain_rate": 0.06666666666666667,
+    "mean_combined_context_recall": 0.3547619047619047,
+    "mean_verse_context_recall": 0.2472222222222222,
+    "mean_chapter_context_recall": 0.14761904761904762,
+    "mean_citation_precision": 0.2848148148148148,
+    "context_recall_nonzero": 13
+  },
+  "items": [
+    {
+      "id": "concept_001",
+      "query": "Why did Arjuna refuse to fight at Kurukshetra?",
+      "frozen": false,
+      "abstained": true,
+      "passed": true,
+      "pass_reason": "correct_abstain",
+      "chapters_localized": [
+        "B7_C157",
+        "B4_C36",
+        "B14_C76"
+      ],
+      "verse_hits": [
+        "B7_C157_S3",
+        "B4_C44_S11",
+        "B7_C96_S28",
+        "B6_C103_S38",
+        "B5_C51_S7",
+        "B14_C85_S9",
+        "B5_C54_S44",
+        "B1_C219_S25"
+      ],
+      "cited_uids": [
+        "B7_C157_S3",
+        "B7_C157_S15",
+        "B6_C103_S38",
+        "B7_C157_S12",
+        "B14_C76",
+        "B4_C44_S11"
+      ],
+      "answer": "Based on the provided chapter summaries and verses, it appears that Arjuna refused to fight at Kurukshetra because of his vow not to retreat when challenged [B7_C157_S3]. Additionally, there is no indication in these excerpts that Arjuna was hesitant or unwilling to fight; instead, he is described as victorious against his enemies [B7_C157_S15] and capable of doing the impossible in battle [B6_C103_S38].\n\nIt seems that Arjuna's reluctance to engage with Karna may be attributed to Krishna's protection, which thwarted Karna's plan [B7_C157_S12]. However, there is no explicit statement explaining why Arjuna refused to fight at Kurukshetra.\n\nThe excerpts suggest that Arjuna was confident in his abilities and did not shy away from battle. He fought valiantly against the Saindhavas [B14_C76], and even Indra is not worthy to fight with him in battle [B4_C44_S11]. It appears that Arjuna's refusal to engage with Karna may be related to Krishna's protection, rather than any personal hesitation or reluctance.\n\nINSUFFICIENT_CONTEXT",
+      "n_known_good": 6,
+      "verse_context_recall": 0.0,
+      "chapter_context_recall": 0.0,
+      "combined_context_recall": 0.0,
+      "kg_in_context": [],
+      "kg_missing_from_context": [
+        "B6_C24_S4",
+        "B6_C24_S5",
+        "B6_C24_S6",
+        "B6_C24_S7",
+        "B6_C24_S8",
+        "B6_C24_S9"
+      ],
+      "n_cited": 6,
+      "n_cited_relevant": 0,
+      "citation_precision": 0.0,
+      "cited_relevant": []
+    },
+    {
+      "id": "concept_002",
+      "query": "How does fate shape the course of events in the Mahabharata?",
+      "frozen": false,
+      "abstained": false,
+      "passed": true,
+      "pass_reason": "grounded_answer",
+      "chapters_localized": [
+        "B6_C3",
+        "B7_C127",
+        "B8_C5"
+      ],
+      "verse_hits": [
+        "B1_C109_S10",
+        "B1_C114_S16",
+        "B8_C68_S10",
+        "B1_C76_S11",
+        "B5_C71_S4",
+        "B7_C23_S2",
+        "B9_C62_S46",
+        "B12_C335_S82"
+      ],
+      "cited_uids": [
+        "B8_C68_S10",
+        "B5_C71_S4",
+        "B7_C127_S15",
+        "B1_C76_S11",
+        "B1_C109_S10",
+        "B7_C127_S22",
+        "B6_C3_S44",
+        "B8_C5_S52",
+        "B7_C127_S17",
+        "B7_C127_S18"
+      ],
+      "answer": "The Mahabharata portrays fate as a powerful force that shapes the course of events, often beyond human control or understanding. The excerpts suggest that fate is self-willed and powerful [B8_C68_S10], ordained by eternal laws [B5_C71_S4], and can nullify even the best efforts and valor in battle [B7_C127_S15].\n\nThe text emphasizes that everyone follows their fate [B1_C76_S11], and that wisdom does not comprehend matters overtaken by fate [B1_C109_S10]. Fate is seen as a determinant of both good and bad outcomes, acting constantly even when people are inactive [B7_C127_S22].\n\nThe characters in the epic often acknowledge the power of fate, recognizing that their actions are ultimately futile against its will. For example, Dhritarashtra accepts the situation as fate [B6_C3_S44], and Sanjaya laments that Duryodhana did not heed Bhishma's advice, leading to his downfall, which was fulfilling the words of the far-sighted one [B8_C5_S52].\n\nThe text also highlights the unpredictability of events, emphasizing that even diligent and truthful people should perform their duties without hesitation, trusting that success is ultimately determined by fate [B7_C127_S17]. The Pandavas themselves were victims of deceit, poisoning, arson, and gambling, leading to their downfall, which was ultimately attributed to fate [B7_C127_S18].\n\nIn conclusion, the Mahabharata portrays fate as a powerful force that shapes the course of events, often beyond human control or understanding. The text emphasizes that everyone follows their fate, and that wisdom does not comprehend matters overtaken by fate.\n\nCited UIDs:\n\n* [B6_C3_S44]\n* [B7_C127_S15]\n* [B1_C109_S10]\n* [B8_C68_S10]\n* [B1_C76_S11]\n* [B5_C71_S4]\n* [B7_C127_S22]\n* [B7_C127_S18]\n\nNote: The cited UIDs are from the provided chapter summaries and verses.",
+      "n_known_good": 7,
+      "verse_context_recall": 0.42857142857142855,
+      "chapter_context_recall": 0.0,
+      "combined_context_recall": 0.42857142857142855,
+      "kg_in_context": [
+        "B1_C109_S10",
+        "B1_C114_S16",
+        "B8_C68_S10"
+      ],
+      "kg_missing_from_context": [
+        "B11_C25_S30",
+        "B6_C103_S92",
+        "B7_C158_S7",
+        "B7_C57_S6"
+      ],
+      "n_cited": 10,
+      "n_cited_relevant": 2,
+      "citation_precision": 0.2,
+      "cited_relevant": [
+        "B8_C68_S10",
+        "B1_C109_S10"
+      ]
+    },
+    {
+      "id": "concept_003",
+      "query": "What did Draupadi feel when she was disrobed in the Kuru assembly?",
+      "frozen": false,
+      "abstained": false,
+      "passed": true,
+      "pass_reason": "grounded_answer",
+      "chapters_localized": [
+        "B2_C62",
+        "B3_C13",
+        "B2_C60"
+      ],
+      "verse_hits": [
+        "B3_C253_S11",
+        "B2_C63_S25",
+        "B9_C60_S43",
+        "B5_C126_S8",
+        "B5_C76_S18",
+        "B2_C61_S33",
+        "B12_C1_S17",
+        "B8_C5_S79"
+      ],
+      "cited_uids": [
+        "B2_C62_S1",
+        "B3_C253_S11"
+      ],
+      "answer": "Based on the provided chapter summaries and verses, it can be inferred that Draupadi felt extreme distress, humiliation, and sorrow when she was disrobed in the Kuru assembly.\n\n[B2_C62_S1] She expresses her distress at being dragged into the assembly, lamenting her failure to act beforehand and questioning what can be done now.\n\n[B3_C13_S53-54] She describes her humiliating state: trembling, covered in blood, with only one garment, and being dragged into the Kuru assembly. She also recounts how Duryodhana laughed at her in the assembly, filled with dust and in the presence of kings, revealing his sinful nature.\n\n[B2_C60_S34-35] Draupadi observes her enraged husbands and uses her glances to further ignite their fury. Her sorrow stems not so much from the loss of kingdom, wealth, or jewels, but from the anger evident in her sidelong glance.\n\n[B3_C253_S11] The verse asks why she cries, fallen on the ground, with a dry and pale face, having been tormented by the sinful ones.\n\nThese excerpts suggest that Draupadi felt deep emotional pain, shame, and humiliation as she was disrobed and mistreated in the Kuru assembly.",
+      "n_known_good": 8,
+      "verse_context_recall": 0.0,
+      "chapter_context_recall": 0.875,
+      "combined_context_recall": 0.875,
+      "kg_in_context": [
+        "B2_C60_S21",
+        "B2_C60_S28",
+        "B2_C60_S36",
+        "B2_C60_S46",
+        "B2_C62_S3",
+        "B2_C62_S5",
+        "B2_C62_S8"
+      ],
+      "kg_missing_from_context": [
+        "B2_C72_S17"
+      ],
+      "n_cited": 2,
+      "n_cited_relevant": 0,
+      "citation_precision": 0.0,
+      "cited_relevant": []
+    },
+    {
+      "id": "concept_005",
+      "query": "How did Yudhishthira come to be king as the eldest Pandava?",
+      "frozen": false,
+      "abstained": false,
+      "passed": true,
+      "pass_reason": "grounded_answer",
+      "chapters_localized": [
+        "B2_C42",
+        "B2_C22",
+        "B14_C3"
+      ],
+      "verse_hits": [
+        "B7_C56_S14",
+        "B5_C147_S31",
+        "B1_C107_S24",
+        "B3_C295_S5",
+        "B6_C116_S48",
+        "B7_C102_S52",
+        "B5_C56_S30",
+        "B1_C107_S26"
+      ],
+      "cited_uids": [
+        "B2_C42",
+        "B2_C42_S36",
+        "B1_C107_S26",
+        "B5_C147_S31"
+      ],
+      "answer": "According to the provided chapter summaries and verses, Yudhishthira came to be king as the eldest Pandava due to his own merits and rightful succession. The chapter summary [B2_C42] describes the Rajasuya sacrifice performed by the Kuru king, which was prosperous and pleasing to the young. After the sacrifice, Yudhishthira is congratulated on his success and for increasing the fame of his ancestors through his righteous actions [B2_C42_S36]. This suggests that Yudhishthira's leadership and character have earned him respect and recognition.\n\nVerse [B1_C107_S26] explicitly states that Yudhishthira, the prince, is the eldest and has obtained the kingdom by his own merits; there is nothing to be said against him by us. This verse implies that Yudhishthira's succession as king is legitimate and not disputed.\n\nVerse [B5_C147_S31] describes Yudhishthira as a great-souled prince, master of the Kaurava people, wise ruler, and magnanimous person. This characterization reinforces his rightful position as king.\n\nIn summary, Yudhishthira's succession as king is attributed to his own merits, righteous actions, and legitimate birthright as the eldest Pandava.",
+      "n_known_good": 6,
+      "verse_context_recall": 0.3333333333333333,
+      "chapter_context_recall": 0.0,
+      "combined_context_recall": 0.3333333333333333,
+      "kg_in_context": [
+        "B1_C107_S24",
+        "B1_C107_S26"
+      ],
+      "kg_missing_from_context": [
+        "B1_C200_S5",
+        "B1_C200_S6",
+        "B1_C200_S7",
+        "B1_C200_S8"
+      ],
+      "n_cited": 4,
+      "n_cited_relevant": 1,
+      "citation_precision": 0.25,
+      "cited_relevant": [
+        "B1_C107_S26"
+      ]
+    },
+    {
+      "id": "concept_006",
+      "query": "What motivated Bhishma to surrender his throne and worldly desires?",
+      "frozen": false,
+      "abstained": false,
+      "passed": false,
+      "pass_reason": "should_have_abstained",
+      "chapters_localized": [
+        "B5_C145",
+        "B6_C95",
+        "B1_C95"
+      ],
+      "verse_hits": [
+        "B6_C41_S35",
+        "B5_C173_S8",
+        "B5_C173_S7",
+        "B1_C2_S79",
+        "B6_C78_S5",
+        "B2_C41_S23",
+        "B6_C77_S43",
+        "B1_C96_S39"
+      ],
+      "cited_uids": [
+        "B5_C145_S31",
+        "B5_C145_S32",
+        "B6_C95_S4"
+      ],
+      "answer": "Based on the provided chapter summaries and verses, Bhishma surrendered his throne and worldly desires because he was committed to his vow of celibacy out of respect for his father and for the sake of the family [B5_C145_S31]. He also felt that becoming king would break his vow and betray the Kuru lineage [B5_C145_S32].\n\nAdditionally, Bhishma's motivation is further highlighted in [B6_C95_S4], where he understands that Duryodhana's gesture was urging him to action. This suggests that Bhishma was motivated by a sense of duty and loyalty to his family and kingdom.\n\nCiting the relevant UIDs:\n[B5_C145_S31]\n[B5_C145_S32]\n\nNote: The provided excerpts do not explicitly state what motivated Bhishma to surrender his throne, but they provide context about his vow of celibacy and his sense of duty and loyalty.",
+      "n_known_good": 7,
+      "verse_context_recall": 0.0,
+      "chapter_context_recall": 0.0,
+      "combined_context_recall": 0.0,
+      "kg_in_context": [],
+      "kg_missing_from_context": [
+        "B1_C94_S77",
+        "B1_C94_S85",
+        "B1_C94_S86",
+        "B1_C94_S87",
+        "B1_C94_S88",
+        "B1_C94_S93",
+        "B1_C97_S15"
+      ],
+      "n_cited": 3,
+      "n_cited_relevant": 0,
+      "citation_precision": 0.0,
+      "cited_relevant": []
+    },
+    {
+      "id": "concept_007",
+      "query": "Why should we not mourn the dead?",
+      "frozen": false,
+      "abstained": false,
+      "passed": true,
+      "pass_reason": "grounded_answer",
+      "chapters_localized": [
+        "B1_C145",
+        "B12_C149",
+        "B5_C71"
+      ],
+      "verse_hits": [
+        "B6_C24_S27",
+        "B7_C57_S8",
+        "B1_C146_S2",
+        "B12_C237_S15",
+        "B12_C277_S22",
+        "B13_C107_S87",
+        "B12_C219_S4",
+        "B13_C107_S99"
+      ],
+      "cited_uids": [
+        "B6_C24_S27",
+        "B7_C57_S8",
+        "B1_C146_S2",
+        "B12_C237_S15"
+      ],
+      "answer": "According to the provided verses and chapter summaries, it is suggested that we should not mourn the dead for several reasons:\n\n* Death is inevitable [B6_C24_S27], and grieving over something certain to happen is pointless.\n* Grief weakens relatives and pleases enemies [B7_C57_S8].\n* Death must be accepted as a natural part of life, and there is no grief in a matter that is certain to happen [B1_C146_S2].\n* One should not welcome death or life, but wait for the appointed time [B12_C237_S15].",
+      "n_known_good": 8,
+      "verse_context_recall": 0.375,
+      "chapter_context_recall": 0.0,
+      "combined_context_recall": 0.375,
+      "kg_in_context": [
+        "B1_C146_S2",
+        "B6_C24_S27",
+        "B7_C57_S8"
+      ],
+      "kg_missing_from_context": [
+        "B11_C15_S19",
+        "B6_C24_S11",
+        "B6_C24_S22",
+        "B6_C24_S25",
+        "B6_C24_S28"
+      ],
+      "n_cited": 4,
+      "n_cited_relevant": 3,
+      "citation_precision": 0.75,
+      "cited_relevant": [
+        "B6_C24_S27",
+        "B7_C57_S8",
+        "B1_C146_S2"
+      ]
+    },
+    {
+      "id": "concept_008",
+      "query": "When is killing in battle justified?",
+      "frozen": false,
+      "abstained": false,
+      "passed": true,
+      "pass_reason": "grounded_answer",
+      "chapters_localized": [
+        "B6_C1",
+        "B12_C96",
+        "B12_C97"
+      ],
+      "verse_hits": [
+        "B6_C1_S28",
+        "B12_C140_S26",
+        "B12_C97_S14",
+        "B7_C166_S20",
+        "B12_C133_S20",
+        "B12_C129_S10",
+        "B5_C151_S22",
+        "B10_C1_S44"
+      ],
+      "cited_uids": [
+        "B6_C1_S31",
+        "B12_C96_S11",
+        "B12_C96_S13",
+        "B12_C96_S14",
+        "B12_C96_S12",
+        "B12_C97_S3",
+        "B7_C166_S20",
+        "B12_C133_S20",
+        "B12_C96_S15",
+        "B12_C97_S5"
+      ],
+      "answer": "Based on the provided chapter summaries and verses, killing in battle can be justified under certain conditions:\n\n1. When the enemy is not following the rules of engagement or is not a virtuous individual [B6_C1_S31]. The verse emphasizes ethical considerations in warfare.\n2. When the goal of fighting is victory, not driven by anger or the desire to kill someone who does not intend to kill [B12_C96_S11].\n3. When the enemy is defeated and should be cared for and allowed to return home, even if unharmed [B12_C96_S13]. This is presented as an eternal law.\n4. When fighting with righteousness (dharma) and following the example of good people [B12_C96_S14].\n\nHowever, killing in battle can also be considered unjustified under certain conditions:\n\n1. When the enemy is not a virtuous individual or is in distress [B12_C96_S12].\n2. When the goal of fighting is driven by anger or the desire to kill someone who does not intend to kill [B12_C96_S11].\n3. When the enemy surrenders or is defenseless, and compassion and restraint are called for [B12_C97_S3].\n\nAdditionally, some verses suggest that killing in battle can be justified when:\n\n1. The enemy is a Kshatriya who achieves victory through righteous means [B7_C166_S20].\n2. Punishment is prescribed for the sake of discipline, not for the sake of killing [B12_C133_S20].\n\nHowever, other verses warn against unrighteous conquest and emphasize the importance of fighting with righteousness:\n\n1. Unrighteous conquest ultimately destroys oneself and leads to a sinful life [B12_C96_S15].\n2. Fighting with unrighteousness (adharm) is considered destructive and can lead to one's own downfall [B12_C97_S5].\n\nIn summary, killing in battle can be justified when the enemy is not virtuous or is defeated, but it can also be considered unjustified when the goal of fighting is driven by anger or the desire to kill someone who does not intend to kill.",
+      "n_known_good": 6,
+      "verse_context_recall": 0.16666666666666666,
+      "chapter_context_recall": 0.0,
+      "combined_context_recall": 0.16666666666666666,
+      "kg_in_context": [
+        "B12_C133_S20"
+      ],
+      "kg_missing_from_context": [
+        "B6_C24_S31",
+        "B6_C24_S32",
+        "B6_C24_S33",
+        "B6_C24_S37",
+        "B6_C24_S38"
+      ],
+      "n_cited": 10,
+      "n_cited_relevant": 1,
+      "citation_precision": 0.1,
+      "cited_relevant": [
+        "B12_C133_S20"
+      ]
+    },
+    {
+      "id": "concept_009",
+      "query": "What happens to the soul at the moment of death?",
+      "frozen": false,
+      "abstained": false,
+      "passed": true,
+      "pass_reason": "grounded_answer",
+      "chapters_localized": [
+        "B12_C286",
+        "B14_C17",
+        "B12_C179"
+      ],
+      "verse_hits": [
+        "B14_C17_S17",
+        "B6_C24_S20",
+        "B12_C179_S10",
+        "B14_C17_S7",
+        "B3_C200_S24",
+        "B13_C112_S13",
+        "B12_C180_S2",
+        "B6_C24_S13"
+      ],
+      "cited_uids": [
+        "B14_C17_S17",
+        "B14_C17_S7",
+        "B3_C200_S24",
+        "B6_C24_S13",
+        "B12_C180_S2"
+      ],
+      "answer": "According to the provided excerpts, the soul's state at the moment of death is as follows:\n\n* The soul departs from the body with pain [B14_C17_S17].\n* The soul is filled with pain when the vital points are being broken [B14_C17_S17].\n* The soul engages in opposite actions and its intellect becomes distorted when destruction is imminent [B14_C17_S7].\n* The soul transmigrates elsewhere, bound by the bonds of karma, after the body's death [B3_C200_S24].\n\nIt appears that the soul does not cease to exist at the moment of death. Instead, it continues to exist and transmigrate into another body [B6_C24_S13]. The excerpts suggest that the soul is not dependent on the body and can continue to exist even after the physical form has been destroyed [B12_C180_S2].\n\nThe provided verses do not explicitly describe what happens to the soul at the moment of death, but they imply a process of transmigration or rebirth.",
+      "n_known_good": 8,
+      "verse_context_recall": 0.5,
+      "chapter_context_recall": 0.125,
+      "combined_context_recall": 0.5,
+      "kg_in_context": [
+        "B12_C180_S2",
+        "B14_C17_S17",
+        "B3_C200_S24",
+        "B6_C24_S13"
+      ],
+      "kg_missing_from_context": [
+        "B6_C30_S10",
+        "B6_C30_S13",
+        "B6_C30_S5",
+        "B6_C30_S6"
+      ],
+      "n_cited": 5,
+      "n_cited_relevant": 4,
+      "citation_precision": 0.8,
+      "cited_relevant": [
+        "B14_C17_S17",
+        "B3_C200_S24",
+        "B6_C24_S13",
+        "B12_C180_S2"
+      ]
+    },
+    {
+      "id": "concept_010",
+      "query": "What is the duty owed to one's teacher?",
+      "frozen": false,
+      "abstained": false,
+      "passed": true,
+      "pass_reason": "grounded_answer",
+      "chapters_localized": [
+        "B12_C234",
+        "B12_C109",
+        "B5_C29"
+      ],
+      "verse_hits": [
+        "B7_C167_S33",
+        "B12_C219_S8",
+        "B1_C3_S99",
+        "B1_C154_S19",
+        "B4_C46_S2",
+        "B5_C44_S12",
+        "B12_C186_S15",
+        "B3_C190_S58"
+      ],
+      "cited_uids": [
+        "B12_C186_S15",
+        "B12_C219_S8"
+      ],
+      "answer": "Based on the provided chapter summaries and verses, the duty owed to one's teacher is:\n\n* To respect and serve them [B12_C109_S9-10]\n* To seek permission from them before studying or taking action [B12_C234_S23-24]\n* To report completed tasks and offer wealth as a sign of gratitude [B12_C234_S19, B5_C44_S12]\n* To offer a seat to one's teachers and perform obeisance to them [B12_C186_S15]\n* To consider the teacher's instructions and carry out duties as appointed [B12_C219_S8]\n\nThese duties are emphasized throughout the provided excerpts, highlighting the importance of showing respect, gratitude, and obedience to one's teacher.",
+      "n_known_good": 7,
+      "verse_context_recall": 0.14285714285714285,
+      "chapter_context_recall": 0.0,
+      "combined_context_recall": 0.14285714285714285,
+      "kg_in_context": [
+        "B12_C186_S15"
+      ],
+      "kg_missing_from_context": [
+        "B1_C123_S1",
+        "B1_C123_S34",
+        "B1_C123_S35",
+        "B1_C86_S2",
+        "B5_C44_S8",
+        "B5_C44_S9"
+      ],
+      "n_cited": 2,
+      "n_cited_relevant": 1,
+      "citation_precision": 0.5,
+      "cited_relevant": [
+        "B12_C186_S15"
+      ]
+    },
+    {
+      "id": "concept_011",
+      "query": "What is the cost of unchecked anger?",
+      "frozen": false,
+      "abstained": false,
+      "passed": true,
+      "pass_reason": "grounded_answer",
+      "chapters_localized": [
+        "B3_C30",
+        "B2_C57",
+        "B12_C115"
+      ],
+      "verse_hits": [
+        "B12_C258_S71",
+        "B3_C30_S5",
+        "B1_C38_S8",
+        "B3_C30_S23",
+        "B12_C115_S19",
+        "B5_C90_S5",
+        "B3_C30_S15",
+        "B12_C348_S8"
+      ],
+      "cited_uids": [
+        "B3_C30_S11",
+        "B3_C30_S10",
+        "B1_C38_S8",
+        "B3_C30_S5",
+        "B12_C115_S19",
+        "B3_C30_S15"
+      ],
+      "answer": "The cost of unchecked anger is destruction [B3_C30_S11]. It can lead to loss of self-control, ultimately resulting in one's own downfall [B3_C30_S10]. Anger also destroys dharma, making it impossible for an ascetic to achieve a desirable destination [B1_C38_S8].\n\nAnger can cause one to do and say things that are regrettable [B3_C30_S5], and it can lead to cruelty and violence [B12_C115_S19]. Even the thought of unleashing anger, as in the case of killing Suyodhana, is undesirable because it has many faults [B3_C30_S15].\n\nFurthermore, unchecked anger can result in a person's own downfall, making them vulnerable to stronger individuals. It is crucial to control one's anger, especially for those who are powerless [B3_C30_S11].",
+      "n_known_good": 7,
+      "verse_context_recall": 0.2857142857142857,
+      "chapter_context_recall": 0.5714285714285714,
+      "combined_context_recall": 0.7142857142857143,
+      "kg_in_context": [
+        "B1_C38_S8",
+        "B3_C30_S19",
+        "B3_C30_S4",
+        "B3_C30_S5",
+        "B3_C30_S6"
+      ],
+      "kg_missing_from_context": [
+        "B6_C24_S62",
+        "B6_C24_S63"
+      ],
+      "n_cited": 6,
+      "n_cited_relevant": 2,
+      "citation_precision": 0.3333333333333333,
+      "cited_relevant": [
+        "B1_C38_S8",
+        "B3_C30_S5"
+      ]
+    },
+    {
+      "id": "concept_012",
+      "query": "Speaking truth even when it is costly",
+      "frozen": false,
+      "abstained": false,
+      "passed": true,
+      "pass_reason": "grounded_answer",
+      "chapters_localized": [
+        "B12_C192",
+        "B12_C259",
+        "B12_C110"
+      ],
+      "verse_hits": [
+        "B12_C276_S19",
+        "B8_C49_S27",
+        "B12_C316_S13",
+        "B12_C251_S10",
+        "B8_C49_S28",
+        "B1_C77_S17",
+        "B8_C49_S52",
+        "B3_C178_S5"
+      ],
+      "cited_uids": [
+        "B12_C192_S51",
+        "B12_C259",
+        "B12_C259_S35",
+        "B8_C49_S27"
+      ],
+      "answer": "Speaking truth even when it is costly:\n\n[B12_C192_S51] The speaker claims ignorance of the specific outcome of their actions but emphasizes the presence of Dharma, Time, Yama, and Death as witnesses to their deeds.\n\n[B12_C259] Shanti Parva, chapter 259 (35 verses) [B12_C259_S35] This verse emphasizes the importance of adhering to truth, as it leads to significant rewards in dharma. It also mentions that Manu Svayambhuva spoke this out of compassion for all living beings.\n\n[B8_C49_S27] Speaking the truth is good; there is nothing higher than truth. This is truly difficult to understand, for whom truth is practiced.\n\nThese excerpts suggest that speaking truth even when it is costly is important and beneficial in the long run. The speaker in [B12_C192_S51] emphasizes the importance of keeping one's word and upholding the truth, while [B12_C259_S35] highlights the rewards that come from adhering to truth. Additionally, [B8_C49_S27] states that there is nothing higher than truth, making it clear that speaking truth is a valuable and important action.\n\nHowever, it is also acknowledged in [B12_C110_S15-18] that there may be situations where speaking an untruth is necessary for the greater good. This suggests that while speaking truth is generally beneficial, there may be exceptions to this rule.\n\nIn conclusion, speaking truth even when it is costly is important and beneficial, but it is not always a straightforward or easy decision.",
+      "n_known_good": 8,
+      "verse_context_recall": 0.375,
+      "chapter_context_recall": 0.0,
+      "combined_context_recall": 0.375,
+      "kg_in_context": [
+        "B12_C251_S10",
+        "B12_C276_S19",
+        "B8_C49_S27"
+      ],
+      "kg_missing_from_context": [
+        "B1_C187_S6",
+        "B2_C61_S68",
+        "B3_C49_S27",
+        "B5_C146_S13",
+        "B5_C186_S26"
+      ],
+      "n_cited": 4,
+      "n_cited_relevant": 1,
+      "citation_precision": 0.25,
+      "cited_relevant": [
+        "B8_C49_S27"
+      ]
+    },
+    {
+      "id": "concept_013",
+      "query": "Friendship that endures hardship and reversal",
+      "frozen": false,
+      "abstained": false,
+      "passed": true,
+      "pass_reason": "grounded_answer",
+      "chapters_localized": [
+        "B12_C136",
+        "B5_C39",
+        "B12_C137"
+      ],
+      "verse_hits": [
+        "B12_C137_S33",
+        "B12_C137_S32",
+        "B12_C136_S134",
+        "B5_C39_S37",
+        "B12_C162_S4",
+        "B5_C36_S57",
+        "B12_C136_S133",
+        "B12_C136_S96"
+      ],
+      "cited_uids": [
+        "B12_C136_S33",
+        "B12_C136_S96",
+        "B5_C39_S37"
+      ],
+      "answer": "Friendship that endures hardship and reversal is described in the following verses:\n\n[B12_C136_S33] Friendship is made again with one who has done a favor and with one who is going to do a favor. The calming of enmity is seen, and one does not attain sin again.\n\nThis verse suggests that friendship can be re-established through acts of kindness and that calming enmity prevents future sin. It implies that when someone has done a favor or intends to do so, the foundation for rebuilding a strong friendship is laid.\n\n[B12_C136_S96] Indeed, good people do not abandon the tasks of a friend and act carelessly. Just as I, hurrying, rescued you from distress.\n\nThis verse highlights the importance of loyalty and commitment in friendships. It emphasizes that good people will go to great lengths to help their friends in times of need, even if it means enduring hardships.\n\n[B5_C39_S37] A grateful, righteous, truthful, generous, steadfastly devoted, self-controlled, stable, and non-miserly person is desired as a friend.\n\nThis verse describes the qualities of a desirable friend, which include gratitude, righteousness, truthfulness, generosity, and self-control. These traits are essential for building strong and enduring friendships that can withstand hardships and reversals.\n\nIn summary, friendship that endures hardship and reversal requires acts of kindness, loyalty, commitment, and the presence of desirable qualities such as gratitude, righteousness, and self-control.",
+      "n_known_good": 6,
+      "verse_context_recall": 0.3333333333333333,
+      "chapter_context_recall": 0.5,
+      "combined_context_recall": 0.5,
+      "kg_in_context": [
+        "B12_C136_S54",
+        "B12_C136_S96",
+        "B5_C39_S37"
+      ],
+      "kg_missing_from_context": [
+        "B12_C167_S21",
+        "B2_C18_S14",
+        "B3_C120_S7"
+      ],
+      "n_cited": 3,
+      "n_cited_relevant": 2,
+      "citation_precision": 0.6666666666666666,
+      "cited_relevant": [
+        "B12_C136_S96",
+        "B5_C39_S37"
+      ]
+    },
+    {
+      "id": "concept_014",
+      "query": "What is the mark of true contentment?",
+      "frozen": false,
+      "abstained": false,
+      "passed": true,
+      "pass_reason": "grounded_answer",
+      "chapters_localized": [
+        "B12_C343",
+        "B14_C38",
+        "B3_C35"
+      ],
+      "verse_hits": [
+        "B12_C21_S2",
+        "B13_C16_S59",
+        "B12_C304_S18",
+        "B3_C206_S20",
+        "B12_C317_S21",
+        "B3_C189_S21",
+        "B3_C247_S27",
+        "B12_C328_S23"
+      ],
+      "cited_uids": [
+        "B12_C304_S18",
+        "B3_C206_S20",
+        "B12_C317_S21",
+        "B3_C189_S21",
+        "B3_C35_S21"
+      ],
+      "answer": "Based on the provided chapter summaries and verses, the mark of true contentment is described as:\n\n* Being satisfied with one's circumstances [B12_C304_S18]\n* Sleeping happily and being satisfied [B12_C304_S18]\n* Having no end to discontent, but contentment being the highest happiness [B3_C206_S20]\n* Attaining contentment through yoga [B12_C317_S21]\n* Seeing contentment as wealth in this world [B12_C317_S21]\n\nThe verses also emphasize the importance of compassion, benevolence, and devotion to dharma (righteousness) for achieving true contentment. For example:\n\n* Markandeya advises being compassionate to all beings, benevolent, affectionate, and free from envy [B3_C189_S21]\n* The speaker declares their unwavering commitment to dharma above all other worldly and even heavenly desires, emphasizing the supreme value of truth [B3_C35_S21]\n\nOverall, true contentment is characterized by a sense of satisfaction with one's circumstances, compassion towards others, and devotion to righteous living.",
+      "n_known_good": 8,
+      "verse_context_recall": 0.25,
+      "chapter_context_recall": 0.0,
+      "combined_context_recall": 0.25,
+      "kg_in_context": [
+        "B12_C21_S2",
+        "B12_C304_S18"
+      ],
+      "kg_missing_from_context": [
+        "B1_C85_S25",
+        "B6_C24_S55",
+        "B6_C24_S56",
+        "B6_C24_S57",
+        "B6_C24_S70",
+        "B6_C24_S71"
+      ],
+      "n_cited": 5,
+      "n_cited_relevant": 1,
+      "citation_precision": 0.2,
+      "cited_relevant": [
+        "B12_C304_S18"
+      ]
+    },
+    {
+      "id": "concept_015",
+      "query": "How should a king treat his subjects?",
+      "frozen": false,
+      "abstained": false,
+      "passed": true,
+      "pass_reason": "grounded_answer",
+      "chapters_localized": [
+        "B5_C85",
+        "B12_C69",
+        "B12_C103"
+      ],
+      "verse_hits": [
+        "B12_C104_S27",
+        "B12_C259_S1",
+        "B12_C104_S1",
+        "B3_C238_S46",
+        "B12_C136_S4",
+        "B12_C86_S20",
+        "B12_C60_S18",
+        "B12_C60_S20"
+      ],
+      "cited_uids": [
+        "B5_C85",
+        "B12_C69_S17",
+        "B12_C103_S41",
+        "B12_C69_S26",
+        "B12_C69_S24",
+        "B12_C69_S25",
+        "B12_C104_S27",
+        "B12_C103_S39",
+        "B12_C86_S20"
+      ],
+      "answer": "According to the provided excerpts, a king should treat his subjects with care and respect, fostering a reciprocal relationship [B5_C85]. A wise king should also eliminate those who threaten his existence and are universally disliked [B12_C69_S17], and protect his subjects from all sides to rule successfully [B12_C103_S41].\n\nIn terms of specific guidance on how to treat subjects, the excerpts suggest that a king should:\n\n* Treat citizens with the same care and affection as one's own sons [B12_C69_S26]\n* Collect a sixth of the produce as tax to protect the subjects [B12_C69_S24]\n* Not hastily take wealth from righteous individuals to protect the citizens [B12_C69_S25]\n* Employ division, then silence, and then punishment at the right time in each situation [B12_C104_S27]\n\nAdditionally, a king should:\n\n* Be conciliatory, knowledgeable of dharma, and fearless to be loved by all [B12_C103_S39]\n* Gain the trust of all beings without deceit and protect them from all sides to rule successfully [B12_C103_S41]\n* Protect the virtuous with conciliation and gifts, and manage the wicked with gentleness and punishments [B12_C86_S20]\n\nOverall, the excerpts suggest that a king should prioritize the well-being and protection of his subjects while also maintaining justice and fairness in his kingdom.",
+      "n_known_good": 8,
+      "verse_context_recall": 0.375,
+      "chapter_context_recall": 0.0,
+      "combined_context_recall": 0.375,
+      "kg_in_context": [
+        "B12_C104_S27",
+        "B12_C60_S20",
+        "B12_C86_S20"
+      ],
+      "kg_missing_from_context": [
+        "B12_C65_S2",
+        "B1_C94_S14",
+        "B1_C94_S16",
+        "B1_C94_S2",
+        "B1_C94_S6"
+      ],
+      "n_cited": 9,
+      "n_cited_relevant": 2,
+      "citation_precision": 0.2222222222222222,
+      "cited_relevant": [
+        "B12_C104_S27",
+        "B12_C86_S20"
+      ]
+    },
+    {
+      "id": "concept_016",
+      "query": "The cost of seeking revenge",
+      "frozen": false,
+      "abstained": false,
+      "passed": true,
+      "pass_reason": "grounded_answer",
+      "chapters_localized": [
+        "B12_C137",
+        "B12_C138",
+        "B12_C58"
+      ],
+      "verse_hits": [
+        "B12_C104_S7",
+        "B12_C316_S10",
+        "B12_C120_S11",
+        "B12_C288_S10",
+        "B5_C133_S35",
+        "B4_C4_S42",
+        "B3_C30_S6",
+        "B3_C201_S4"
+      ],
+      "cited_uids": [
+        "B12_C137_S60",
+        "B12_C138_S52",
+        "B12_C104_S7",
+        "B3_C201_S4"
+      ],
+      "answer": "The cost of seeking revenge is a complex issue explored in these chapters. The verses suggest that seeking revenge can lead to further suffering and perpetuate cycles of violence [B12_C137_S60]. Additionally, showing mercy to enemies may not be advisable, as it could embolden them to continue harming others [B12_C138_S52].\n\nThe importance of understanding the motivations behind one's actions is also highlighted. The verses suggest that seeking revenge can arise from a desire for control and a lack of self-awareness [B12_C104_S7]. Furthermore, the destructive nature of anger and impatience is emphasized, as they can lead to childish behavior and further conflict [B12_C104_S7].\n\nThe excerpts also caution against the dangers of attachment and greed, which can arise from seeking revenge. The verses suggest that these negative emotions can perpetuate cycles of suffering and violence [B3_C201_S4]. Therefore, it is essential to cultivate self-awareness, forgiveness, and understanding in order to break free from these destructive patterns.\n\nIn conclusion, the cost of seeking revenge is a complex issue that requires careful consideration. The verses suggest that seeking revenge can lead to further suffering, perpetuate cycles of violence, and arise from a lack of self-awareness and attachment.",
+      "n_known_good": 7,
+      "verse_context_recall": 0.14285714285714285,
+      "chapter_context_recall": 0.14285714285714285,
+      "combined_context_recall": 0.2857142857142857,
+      "kg_in_context": [
+        "B12_C137_S50",
+        "B3_C30_S6"
+      ],
+      "kg_missing_from_context": [
+        "B12_C276_S47",
+        "B1_C155_S1",
+        "B1_C155_S21",
+        "B1_C155_S33",
+        "B2_C71_S38"
+      ],
+      "n_cited": 4,
+      "n_cited_relevant": 0,
+      "citation_precision": 0.0,
+      "cited_relevant": []
+    }
+  ]
+}

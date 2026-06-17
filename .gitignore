@@ -37,3 +37,10 @@ data/layer1/parva_summaries.json
 #     readable .md report are kept under version control) ---
 data/layer2/reports/eval_results_latest.json
 data/layer2/reports/eval_results_previous.json
+# Layer 3 synthesis eval — same policy (baseline + .md tracked, rotation not)
+data/layer3/reports/synthesis_eval_latest.json
+data/layer3/reports/synthesis_eval_previous.json
+
+# --- Dogfood capture: rolling runtime query log. Grows per session; curated
+#     questions get promoted into a tracked eval file, the raw log does not ---
+data/dogfood_log.jsonl

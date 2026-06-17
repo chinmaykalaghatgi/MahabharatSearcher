@@ -23,6 +23,10 @@ mbh-query                  = "mahabharata.cli.query:main"
 mbh-bootstrap-eval         = "mahabharata.cli.bootstrap_eval:main"
 mbh-eval                   = "mahabharata.cli.eval:main"
 mbh-build-embeddings       = "mahabharata.cli.build_embeddings:main"
+mbh-build-chapter-embeddings = "mahabharata.cli.build_chapter_embeddings:main"
+mbh-ask                    = "mahabharata.cli.ask:main"
+mbh-eval-synthesis         = "mahabharata.cli.eval_synthesis:main"
+mbh                        = "mahabharata.cli.main:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
